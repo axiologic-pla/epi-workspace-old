@@ -12,8 +12,7 @@ export default {
   "enable_credentials_management": false,
   "enable_enclaves_management": false,
   "enable_deactivate_group_member_feature": false,
-  "sw": false,
-  "pwa": false
+  "sw": false
 }
 /*Legend:
   vault:(server, browser)
@@ -22,7 +21,6 @@ export default {
   browser:(Chrome, Firefox, any)
   mode:(autologin,dev-autologin, secure, dev-secure, sso-direct, sso-pin)
   sw:(true, false)
-  pwa:(true, false)
   lockFeatures: (true, false)
   disabledFeatures: '01, 02 ...'
     - (01 = Patient leaflet, 02 = Batch date validation checks, 03 = Show leaflet if batch unknown, 04 = Healthcare practitioner info, 05= Video source, 06 = Adverse Events reporting

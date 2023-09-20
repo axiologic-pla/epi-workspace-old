@@ -11,7 +11,6 @@ export default {
   "epiSubdomain": "local.epi",
   "enclaveType": "WalletDBEnclave",
   "sw": false,
-  "pwa": false,
   "allowPinLogin": false,
   "companyName": "Company Inc",
   "disabledFeatures": "02, 04, 05, 06, 07, 08, 09",
@@ -27,7 +26,6 @@ export default {
   browser:(Chrome, Firefox, any)
   mode:(autologin,dev-autologin, secure, dev-secure, sso-direct, sso-pin)
   sw:(true, false)
-  pwa:(true, false)
   lockFeatures: (true, false)
   disabledFeatures: '01, 02 ...'
     - (01 = Patient leaflet, 02 = Batch date validation checks, 03 = Show leaflet if batch unknown, 04 = Healthcare practitioner info, 05= Video source, 06 = Adverse Events reporting
