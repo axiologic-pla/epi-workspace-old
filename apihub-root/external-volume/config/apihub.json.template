@@ -32,6 +32,13 @@
       "module": "./../../gtin-resolver",
       "function": "getGTINOwner"
     },
+    "integration-api": {
+      "module": "./../../gtin-resolver",
+      "function": "getIntegrationAPIs"
+    },
+    "versionlessDSU": {
+      "module": "./components/versionlessDSU"
+    },
     "staticServer": {
       "excludedFiles": [
         ".*.secret"
@@ -46,10 +53,10 @@
   },
   "enableRequestLogger": true,
   "enableJWTAuthorisation": false,
-  "enableOAuth": true,
-  "enableAPIKeyAuth": true,
-  "enableClientCredentialsOauth": true,
-  "oauthJWKSEndpoint": "https://login.microsoftonline.com/d69968dd-8f36-47eb-b724-7f5e6e660066/discovery/v2.0/keys",
+  "enableOAuth": ${enable_oauth},
+  "enableAPIKeyAuth": ${enable_oauth},
+  "enableClientCredentialsOauth": ${enable_oauth},
+  "oauthJWKSEndpoint": "${oauth_jwks_endpoint}",
   "enableLocalhostAuthorization": false,
   "skipOAuth": [
     "/assets",
@@ -64,22 +71,22 @@
   ],
   "oauthConfig": {
     "issuer": {
-      "issuer": "https://login.microsoftonline.com/d69968dd-8f36-47eb-b724-7f5e6e660066/oauth2/v2.0/",
-      "authorizationEndpoint": "https://login.microsoftonline.com/d69968dd-8f36-47eb-b724-7f5e6e660066/oauth2/v2.0/authorize",
-      "tokenEndpoint": "https://login.microsoftonline.com/d69968dd-8f36-47eb-b724-7f5e6e660066/oauth2/v2.0/token",
+      "issuer": "${issuer}",
+      "authorizationEndpoint": "${authorization_endpoint}",
+      "tokenEndpoint": "${token_endpoint}",
       "userInfoEndpoint": "https://graph.microsoft.com/oidc/userinfo"
     },
     "client": {
-      "clientId": "5daf11d0-dc28-4d09-b8c7-2eec6f16eb78",
-      "scope": "email user.read offline_access openid api://5daf11d0-dc28-4d09-b8c7-2eec6f16eb78/access_as_user",
-      "redirectPath": "https://mah2.dev.pladevs.com/?root=true",
-      "clientSecret": "mVE8Q~lx~h4lSoFHFektg3rSfAHAgFgkNQNszaE1",
-      "logoutUrl": "https://login.microsoftonline.com/d69968dd-8f36-47eb-b724-7f5e6e660066/oauth2/logout",
-      "postLogoutRedirectUrl": "https://mah2.dev.pladevs.com/?logout=true"
+      "clientId": "${client_id}",
+      "scope": "email user.read offline_access openid api://${client_id}/access_as_user",
+      "redirectPath": "https://${dns_name}/?root=true",
+      "clientSecret": "${client_secret}",
+      "logoutUrl": "${logout_url}",
+      "postLogoutRedirectUrl": "https://${dns_name}/?logout=true"
     },
     "sessionTimeout": 1800000,
     "keyTTL": 3600000,
-    "debugLogEnabled": true
+    "debugLogEnabled": false
   },
-  "serverAuthentication": true
+  "serverAuthentication": ${server_authentication}
 }
