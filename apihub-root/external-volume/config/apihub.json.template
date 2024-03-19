@@ -64,12 +64,8 @@
     "/assets",
     "/bdns",
     "/bundles",
-    "/getAuthorization",
-    "/external-volume/config/oauthConfig.js",
     "/gtinOwner/",
-    "/leaflets/",
-    "/bricking",
-    "/anchor"
+    "/leaflets/"
   ],
   "oauthConfig": {
     "issuer": {

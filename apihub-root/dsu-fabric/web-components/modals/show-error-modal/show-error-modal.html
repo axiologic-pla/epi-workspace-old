@@ -1,0 +1,22 @@
+<div id="show-error-modal">
+    <div id="show-error-modal-header">
+        <img src="./web-components/modals/show-error-modal/error-danger.svg" alt="Error Logo">
+        <span id="error-message">$$data-title</span>
+    </div>
+
+    <div id="show-error-model-content">
+        <div id="show-error-model-content-header">
+            $$data-message
+        </div>
+
+        <div id="show-error-model-content-content">
+            <button class="button" id="details-button" data-local-action="toggleDetails">Details</button>
+            <div id="detailed-error-message">
+                $$data-technical
+            </div>
+            <button id="ok-button" class="button" data-local-action="closeModal">
+                Ok
+            </button>
+        </div>
+    </div>
+</div>

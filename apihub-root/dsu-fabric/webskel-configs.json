@@ -1,0 +1,165 @@
+{
+    "components": [
+        {
+            "name": "search-input",
+            "type": "components",
+            "presenterClassName": "SearchInput"
+        },
+        {
+            "name": "progress-info-modal",
+            "type": "modals",
+            "presenterClassName": "ProgressInfoModal"
+        },
+        {
+            "name": "dialog-modal",
+            "type": "modals",
+            "presenterClassName": "DialogModal"
+        },
+        {
+            "name": "preview-epi-modal",
+            "type": "modals",
+            "presenterClassName": "PreviewEpiModal"
+        },
+        {
+            "name": "data-diffs-modal",
+            "type": "modals",
+            "presenterClassName": "DataDiffsModal"
+        },
+        {
+            "name": "markets-tab",
+            "type": "components",
+            "presenterClassName": "MarketsTab"
+        },
+        {
+            "name": "strengths-tab",
+            "type": "components",
+            "presenterClassName": "StrengthsTab"
+        },
+        {
+            "name": "epis-tab",
+            "type": "components",
+            "presenterClassName": "EPIsTab"
+        },
+        {
+            "name": "data-matrix-modal",
+            "type": "modals",
+            "presenterClassName": "DataMatrixModal"
+        },
+        {
+            "name": "strengths-management-modal",
+            "type": "modals",
+            "presenterClassName": "StrengthsManagementModal"
+        },
+        {
+            "name": "markets-management-modal",
+            "type": "modals",
+            "presenterClassName": "MarketsManagementModal"
+        },
+        {
+            "name": "add-epi-modal",
+            "type": "modals",
+            "presenterClassName": "AddEpiModal"
+        },
+        {
+            "name": "audit-entry-modal",
+            "type": "modals",
+            "presenterClassName": "AuditEntryModal"
+        },
+        {
+            "name": "access-logs",
+            "type": "components",
+            "presenterClassName": "AccessLogs"
+        },
+        {
+            "name": "action-logs",
+            "type": "components",
+            "presenterClassName": "ActionLogs"
+        },
+        {
+            "name": "show-error-modal",
+            "type": "modals",
+            "presenterClassName": "ShowErrorModal"
+        },
+        {
+            "name": "manage-product-page",
+            "type": "pages",
+            "presenterClassName": "ManageProductPage"
+        },
+        {
+            "name": "home-page",
+            "type": "pages",
+            "presenterClassName": "HomePage"
+        },
+        {
+            "name": "manage-batch-page",
+            "type": "pages",
+            "presenterClassName": "ManageBatchPage"
+        },
+        {
+            "name": "left-sidebar",
+            "type": "components",
+            "presenterClassName": "LeftSidebar"
+        },
+        {
+            "name": "batches-page",
+            "type": "pages",
+            "presenterClassName": "BatchesPage"
+        },
+        {
+            "name": "audit-page",
+            "type": "pages",
+            "presenterClassName": "AuditPage"
+        },
+        {
+            "name": "products-page",
+            "type": "pages",
+            "presenterClassName": "ProductsPage"
+        },
+        {
+            "name": "logout-page",
+            "type": "pages",
+            "presenterClassName": "LogoutPage"
+        },
+        {
+            "name": "generate-did-page",
+            "type": "pages",
+            "presenterClassName": "GenerateDidPage"
+        },
+        {
+            "name": "my-account-page",
+            "type": "pages",
+            "presenterClassName": "MyAccountPage"
+        },
+        {
+            "name": "landing-page",
+            "type": "pages",
+            "presenterClassName": "LandingPage"
+        }
+    ],
+    "services": [
+        {
+            "name": "UtilsService",
+            "path": "../services/UtilsService.js"
+        },
+        {
+            "name": "BatchesService",
+            "path": "../services/BatchesService.js"
+        },
+        {
+            "name": "AuditService",
+            "path": "../services/AuditService.js"
+        },
+        {
+            "name": "ProductsService",
+            "path": "../services/ProductsService.js"
+        },
+        {
+            "name": "EPIsService",
+            "path": "../services/EPIsService.js"
+        }
+    ],
+    "webComponentsRootDir": "web-components",
+    "defaultPage": "landing-page",
+    "storageServices": []
+}
+

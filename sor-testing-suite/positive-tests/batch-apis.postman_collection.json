@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "7e5fadc2-730a-4d89-8b5f-949fa547ec98",
+		"name": "batch-apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create or Update Batch Data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000011211\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000011211/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000011211",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Batch Data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000011204/batch2",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000011204",
+						"batch2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

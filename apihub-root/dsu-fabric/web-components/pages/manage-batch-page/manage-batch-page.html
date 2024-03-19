@@ -1,0 +1,96 @@
+<div class="page-header">
+    <div class="page-title">
+        $$pageTitle
+    </div>
+    <div class="batch-version">
+        version: $$batchVersion
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="read-only-label">$$readOnlyLabel</div>
+    <form class="batch-data-form">
+        <div class="column-left">
+            <div class="form-field $$formFieldStateClass">
+                <div class="label-container">
+                    <label class="label" for="productCode">Product Code</label>
+                    $$penImage
+                </div>
+                $$productCodeInput
+            </div>
+            <div class="form-field $$formFieldStateClass">
+                <div class="label-container">
+                    <label class="label" for="batchNumber">Batch</label>
+                    $$penImage
+                </div>
+                <input userRights="$$userRights" type="text" class="text-input" name="batchNumber" id="batchNumber"
+                       placeholder="Add batch id"
+                       autocomplete="off" $$inputState value="$$batchNumber" required
+                       data-condition="otherFieldsCondition">
+            </div>
+
+            <div class="form-field">
+                <div class="label-container">
+                    <label class="label" for="packagingSiteName" userRights="$$userRights">Packaging site name</label>
+                    <img class="pen-square" src="./assets/icons/pen-square.svg" alt="pen-square">
+                </div>
+                <input userRights="$$userRights" type="text" class="text-input" name="packagingSiteName"
+                       id="packagingSiteName" autocomplete="off"
+                       placeholder="Add site name" value="$$packagingSiteName" data-condition="otherFieldsCondition">
+            </div>
+            <div userRights="$$userRights" class="form-field-container">
+                <div class="form-field" id="date">
+                    <div class="label-container">
+                        <label class="label" for="expiryDate">Expiry date</label>
+                        <img class="pen-square" src="./assets/icons/pen-square.svg" alt="pen-square">
+                    </div>
+                    <div id="custom-date-icon">
+                        <svg id="svg1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"/>
+                        </svg>
+                        <svg id="svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192h80v56H48V192zm0 104h80v64H48V296zm128 0h96v64H176V296zm144 0h80v64H320V296zm80-48H320V192h80v56zm0 160v40c0 8.8-7.2 16-16 16H320V408h80zm-128 0v56H176V408h96zm-144 0v56H64c-8.8 0-16-7.2-16-16V408h80zM272 248H176V192h96v56z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="form-field" id="day-selection">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="enableExpiryDay" name="enableExpiryDay"
+                               $$enableExpiryDateCheck
+                               value="$$enableExpiryDate">
+                        <label class="checkbox-label">Enable day selection</label>
+                    </div>
+                    <label class="gs1-date">GS1 format ($$gs1Date)</label>
+                </div>
+            </div>
+
+            <div class="form-buttons">
+                <button class="default-button" data-local-action="navigateToBatchesPage">Cancel</button>
+                <button class="default-button" id="formActionButton" data-local-action="$$formActionButtonFunction"
+                        $$formActionButtonState userRights="$$userRights">$$formActionButtonText
+                </button>
+            </div>
+        </div>
+
+        <div class="column-right">
+            <div class="form-field disabled-form-field">
+                <div class="label-container">
+                    <label class="label" for="inventedName"> Brand / Invented name</label>
+                </div>
+                <input type="text" class="text-input-disabled" name="inventedName" id="inventedName" placeholder="-"
+                       readonly required value="$$productInventedName">
+            </div>
+            <div class="form-field disabled-form-field">
+                <div class="label-container">
+                    <label class="label" for="nameMedicinalProduct"> Name of Medicinal Product</label>
+                </div>
+                <textarea type="text" class="text-input-disabled" name="nameMedicinalProduct"
+                          id="nameMedicinalProduct" placeholder="-" readonly required rows="3">$$productMedicinalName
+                </textarea>
+            </div>
+            <epis-tab data-presenter="epis-tab" data-units="$$leafletsInfo"></epis-tab>
+        </div>
+    </form>
+</div>

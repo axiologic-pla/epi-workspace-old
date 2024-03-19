@@ -1,0 +1,43 @@
+home-page{
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.home-background{
+    height: 130%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: -35px;
+}
+.shortcuts-container{
+    gap: 2em;
+    padding: 170px 2em 2em 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.shortcut{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1em;
+    padding: 2em 1em;
+    color: var(--medium-green);
+    font-size: 24px;
+    font-weight: 800;
+    min-width: 230px;
+    border: none;
+    box-shadow: 0 0 8px -1px rgba(0, 0, 0, 0.25);
+    border-radius: 18px;
+    background: white;
+    width: 420px;
+}
+.shortcut-image{
+    height: 41px;
+    max-height: 41px;
+}
+.shortcut-text{
+    font-size: 110%;
+}

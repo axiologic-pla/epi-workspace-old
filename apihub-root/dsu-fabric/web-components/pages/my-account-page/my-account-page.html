@@ -1,0 +1,35 @@
+<div class="page-header">
+    <div class="page-title">
+        User Info
+    </div>
+    <button class="download-debug-info pointer" data-local-action="downloadDebug">Download Debug Info</button>
+</div>
+<div class="page-body">
+    <div class="content-container">
+        <div class="user-identity-container">
+            <label class="user-label">User Identity:</label>
+            <div class="user-identity">
+                <label class="standard-label did" id="did">$$did</label>
+                <button class="btn btn-success copy-button" data-local-action="copyText">
+                    <div class="button-icon"></div>
+                </button>
+            </div>
+        </div>
+
+        <div id="readableContainer">
+            <div class="invalid-credential hidden">
+                <p><strong>Invalid credential specified</strong></p>
+            </div>
+        </div>
+
+        <div>
+            <div class="d-flex">
+                <p class="user-label">Wallet settings: (build version - $$appVersion)</p>
+            </div>
+
+            <div id="environmentContainer">
+            </div>
+        </div>
+
+    </div>
+</div>

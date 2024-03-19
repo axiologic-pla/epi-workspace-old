@@ -1,0 +1,46 @@
+left-sidebar {
+    display: none;
+}
+
+.standard-label.did {
+    background: rgba(43, 166, 73, 0.07);
+    border-radius: 8px;
+}
+
+.user-identity-container {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+}
+
+.user-label {
+    font-size: 22px;
+}
+
+.user-identity {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.page-header {
+    height: 80px;
+    background-color: #fff;
+    box-shadow: 0 0.15rem 1rem 0 rgba(58, 59, 69, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-background-color);
+    font-weight: 700;
+    text-align: left;
+    padding-left: 60px;
+    font-size: 1.802rem;
+}
+
+.page-body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 60px;
+    color: var(--medium-grey);
+    gap: 20px;
+}

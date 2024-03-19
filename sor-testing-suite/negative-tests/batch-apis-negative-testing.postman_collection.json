@@ -1,0 +1,1141 @@
+{
+	"info": {
+		"_postman_id": "2719658b-f7bf-4fd6-92b1-f8756d1e911e",
+		"name": "Negative-Testing-Batch-apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27954575"
+	},
+	"item": [
+		{
+			"name": "Insert the wrong productCode in URL 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000010/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000010",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert the wrong productCode in URL 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610wrongGtin/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610wrongGtin",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert the wrong productCode in URL 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000010wrongGtin/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000010wrongGtin",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert the wrong productCode in URL 4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/wrongGtin/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"wrongGtin",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert wrong productCode in payload 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000010\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert wrong productCode in payload 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610wrongGtin\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert wrong productCode in payload 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000010wrongGtin\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert wrong productCode in payload 4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"wrongGtin\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing using missing productCode in URL",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing using missing productCode in payload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert the wrong batchNumber in URL",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch2",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert the wrong batchNumber in payload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch2\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing using missing batchNumber  in URL",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing using missing batchNumber  from payload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing using empty text in the batchNumber  field from payload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert in payload a batchNumber more than 20 characters.",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"asd123asd123asd123asd123\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert in URL a batchNumber more than 20 characters.",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1WrongWrongWrongWrongWrong",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1WrongWrongWrongWrongWrong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing creating batch using batchNumber in payload with spaces between characters",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"abc 123\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing creating batch using batchNumber in URL with spaces between characters",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/abc 123",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"abc 123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing creating batch using batchNumber in payload with special characters",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"abc@%#^!@#@#$%^&~]\\’;\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing creating batch using batchNumber in URL with special characters",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"301230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/abc@%#^!@#@#$%^&~]\\’;",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"abc@%"
+					],
+					"hash": "^!@#@#$%^&~]\\’;"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing using missing expiryDate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Testing using empty text in the expiryDate field",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert in the expiryDate field a date in the format YYYYMMDD",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"20250230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert in the expiryDate field a date in the format aYYMMDD",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"a250220\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert in the expiryDate field a date in the format AABBCC",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"AABBCC\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert in the expiryDate field a date in the format YY0230",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"250230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert in the expiryDate field a date in the format YY13DD",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"251330\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert in the expiryDate field a date in the format YYYYMMDD Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"messageType\": \"Batch\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010610\",\n        \"batchNumber\": \"batch1\",\n        \"expiryDate\": \"20250230\",\n        \"packagingSiteName\": \"factory\"\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mah1.dev.pladevs.com/integration/batch/00000000010610/batch1",
+					"protocol": "https",
+					"host": [
+						"mah1",
+						"dev",
+						"pladevs",
+						"com"
+					],
+					"path": [
+						"integration",
+						"batch",
+						"00000000010610",
+						"batch1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

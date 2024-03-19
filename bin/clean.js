@@ -106,3 +106,15 @@ fs.rm("./apihub-root/external-volume/secrets", { recursive: true, force: true },
         console.error(err);
     }
 });
+
+fs.rm("./apihub-root/external-volume/versionlessdsu", { recursive: true, force: true }, (err)=>{
+    if(err){
+        console.error(err);
+    }
+});
+
+fs.rm("./apihub-root/external-volume/locks", { recursive: true, force: true }, (err)=>{
+    if(err){
+        console.error(err);
+    }
+});

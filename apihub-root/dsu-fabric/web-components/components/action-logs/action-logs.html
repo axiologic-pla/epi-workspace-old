@@ -1,0 +1,24 @@
+<div class="logs-section">
+    <form class="search-section">
+        <div class="input-container-container">
+            <label class="search-label" for="productCode">Search by product code</label>
+            <search-input data-presenter="search-input" data-input="productCode" data-result-icon="$$searchResultIcon"
+                          data-value="$$inputValue" data-focus="$$focusInput" data-placeholder="Search by code"></search-input>
+        </div>
+        <button class="export-csv pointer" data-local-action="downloadCSV">Export as CSV</button>
+    </form>
+    <div class="table">
+        <div class="column-header first-column">GTIN</div>
+        <div class="column-header">Batch</div>
+        <div class="column-header">Reason</div>
+        <div class="column-header">User</div>
+        <div class="column-header">Creation Time</div>
+        <div class="column-header last-column">View</div>
+        $$items
+    </div>
+    <div class="table-pagination">
+        <button class="pagination-btn margin-right" id="previous" data-local-action="previousTablePage"><<</button>
+        <button class="pagination-btn" id="next" data-local-action="nextTablePage">>></button>
+    </div>
+</div>
+

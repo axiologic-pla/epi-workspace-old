@@ -1,0 +1,107 @@
+action-logs{
+    display: grid;
+}
+.search-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--light-grey);
+    padding: 10px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+.input-container-container{
+    display: flex;
+    align-items: center;
+}
+
+.search-label{
+    margin-right: 5px;
+}
+.table{
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr;
+    border: 1px solid var(--very-light-grey);
+}
+.table div{
+    padding: 0.75rem;
+}
+.column-header{
+    padding: 0.75rem;
+    background: var(--light-green);
+    font-size: 110%;
+    font-weight: bold;
+    border-bottom: 1px solid var(--very-light-grey);
+}
+.first-column{
+    border-top-left-radius: 7px;
+}
+.last-column{
+    border-top-right-radius: 7px;
+}
+.view-details{
+    color: var(--primary-background-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.view-details:hover{
+    text-decoration: underline;
+    color: var(--highlight-green);
+}
+.export-csv{
+    background-color: var(--primary-background-color);
+    border: 1px solid var(--primary-background-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 110%;
+}
+.x-mark{
+    font-weight: bold;
+    position: absolute;
+    left: 93%;
+    bottom: 1.5px;
+    display: none;
+}
+.result-icon{
+    height: 10px;
+    margin-left: 5px;
+}
+.rotate{
+    transform: rotate(90deg);
+}
+.table-pagination{
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+.pagination-btn{
+    cursor: pointer;
+    background-color: var(--primary-background-color);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: bolder;
+}
+.margin-right{
+    margin-right: 16px;
+}
+
+search-input{
+    display: inline-block;
+    height: 27px;
+}
+.view-details {
+    color: var(--primary-background-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.view-details:hover {
+    text-decoration: underline;
+    color: var(--highlight-green);
+}

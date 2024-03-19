@@ -1,0 +1,122 @@
+dialog {
+    background: none;
+    max-height: 95vh;
+    border-radius: 3px;
+    width: 75%;
+    max-width: 75vw;
+}
+
+data-diffs-modal {
+    background-color: var(--diffs-background);
+    margin-left: 240px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    background-color: var(--primary-background-color);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+.expand-icon {
+    margin-right: 20px;
+}
+
+.modal-body {
+    max-height: 70vh;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    background-color: var(--diffs-background);
+}
+
+@media screen and (max-height: 650px) {
+    .modal-body {
+        max-height: 50vh;
+    }
+}
+
+.modal-footer {
+    padding: 16px;
+    display: flex;
+    justify-content: end;
+    background-color: var(--diffs-background);
+}
+
+.column-header {
+    padding: 16px 24px;
+    background: var(--light-green);
+    font-size: 110%;
+    border-bottom: 1px solid var(--very-light-grey);
+    text-align: left;
+}
+
+.first-column {
+    border-top-left-radius: 7px;
+}
+
+.last-column {
+    border-top-right-radius: 7px;
+}
+
+.table {
+    overflow: auto;
+    width: 100%;
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--very-light-grey);
+}
+
+.right-margin {
+    margin-right: 16px;
+}
+
+.cell {
+    overflow-wrap: anywhere;
+    background-color: white;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--very-light-grey);
+}
+
+.border {
+    border-right: 1px solid var(--very-light-grey);
+}
+
+.border-radius-left {
+    border-bottom-left-radius: 7px;
+}
+
+.border-radius-right {
+    border-bottom-right-radius: 7px;
+}
+
+.view-details {
+    color: var(--primary-background-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.view-details:hover {
+    text-decoration: underline;
+    color: var(--highlight-green);
+}
+
+.gs1-label {
+    font-size: 12px;
+    opacity: 0.6;
+}

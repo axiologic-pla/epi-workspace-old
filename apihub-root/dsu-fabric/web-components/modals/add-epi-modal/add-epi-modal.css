@@ -1,0 +1,131 @@
+dialog{
+    background: none;
+    max-height: 95vh;
+    height: 95%;
+    border-radius: 3px;
+
+    max-width: 75vw;
+    width: 75%;
+
+}
+add-epi-modal{
+    margin-left: 240px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-text-color);
+}
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid var(--very-light-grey);
+}
+.modal-title{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.right-section{
+    display: flex;
+    align-items: center;
+}
+.close-icon{
+    font-size: 24px;
+}
+.expand-icon{
+    margin-right: 20px;
+}
+.modal-body{
+    padding: 16px;
+    height: calc(100% - 131px);
+    overflow-y: scroll;
+}
+.add-epi-form{
+    display: flex;
+    flex-direction: column;
+    overflow-y: visible;
+}
+.form-item{
+
+}
+.form-label{
+    line-height: 1.5;
+}
+.form-input{
+    width: 100%;
+    margin-top: calc(0.375rem + 1px);
+    margin-bottom: calc(0.375rem + 1px);
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--medium-grey);
+    background-color: white;
+    background-clip: padding-box;
+    border: 1px solid var(--very-light-grey);
+    border-radius: 0.25rem;
+}
+.first{
+    margin-top: 0;
+}
+.modal-footer{
+    border-top: 1px solid var(--very-light-grey);
+    background-color: var(--primary-text-color);
+    padding: 16px;
+    display: flex;
+    justify-content: end;
+}
+
+.margin-right{
+    margin-right: 16px;
+}
+.input-file-container{
+    padding: 0.75rem 0.75rem;
+    margin-top: calc(0.375rem + 1px);
+    height: 260px;
+    border-radius: 10px;
+    border: 1px solid var(--very-light-grey);
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+}
+.hidden{
+    display: none;
+}
+
+.files-table{
+    margin: 10px 0;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: wrap;
+    max-height: calc(100% - 37px);
+}
+.files-table::-webkit-scrollbar{
+    display: block;
+}
+.file-item{
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    margin-bottom: 1rem;
+}
+.small-padding{
+    padding: 1px 6px;
+}
+.file-name{
+    margin-left: 10px
+}
+.default-button .no-margin{
+    margin:0;
+}
+#leafletFiles{
+    position: absolute;
+}
+.epi-error{
+    margin-top: 5px;
+    visibility: hidden;
+    color: red;
+}
+.error-background{
+    background-color: var(--input-invalid);
+}

@@ -1,0 +1,261 @@
+.manage-product-container[userrights="readonly"]:before {
+    content: "Read only mode";
+    color: var(--primary-background-color);
+    font-weight: 700;
+    text-align: left;
+    margin: 0;
+    padding-left: 60px;
+    font-size: 1.802rem;
+    position: absolute;
+    top: 95px;
+    left: 0px;
+    opacity: 0.7;
+}
+.read-only-label{
+    font-weight: 700;
+    color: var(--light-green);
+    font-size: 1.802rem;
+    margin-bottom: 10px;
+}
+input[type="text"] {
+    margin-top: 20px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+manage-product-page {
+    height: 100%;
+}
+
+.page-header {
+    height: 80px;
+    background-color: #fff;
+    box-shadow: 0 0.15rem 1rem 0 rgba(58, 59, 69, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-background-color);
+    font-weight: 700;
+    text-align: left;
+    padding-left: 60px;
+    padding-right: 60px;
+    font-size: 1.802rem;
+}
+
+.product-version {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.page-body {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 60px;
+    color: var(--medium-grey);
+}
+
+.product-data-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.column-right {
+    width: 50%;
+}
+
+.column-left {
+    margin-right: 60px;
+    width: 50%;
+}
+
+.form-field-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.name-of-medicinal-product {
+    width: 50%;
+}
+
+#productCode {
+    margin: 10px 0;
+}
+
+.medicinal-product-name-input {
+    height: 170px;
+    resize: none;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    overflow: auto;
+}
+
+.product-photo-field {
+    padding-bottom: 80px !important;
+    height: 100%;
+    width: 40%;
+}
+
+.product-photo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+    width: 116px;
+    max-height: 175px;
+    aspect-ratio: 1;
+    max-width: 100%;
+    padding: 3px;
+    border: 1px solid var(--very-light-grey);
+    position: relative;
+}
+
+.product-photo {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.no-image {
+    width: 100%;
+}
+
+.product-photo-container:hover .shadow {
+    opacity: 1;
+}
+
+.shadow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3px;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/*
+.material-code{
+    width: 50%;
+}
+.strength{
+    width: 40%;
+}
+*/
+
+/*color: #328569;*/
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    min-height: 78px;
+    padding: 4px 0.75rem;
+    border-bottom: 1.5px solid var(--primary-background-color);
+    margin-bottom: 1rem;
+}
+
+.label {
+    color: var(--primary-background-color);
+}
+
+.label[disabled] {
+    color: var(--disabled);
+}
+
+.text-input::placeholder {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.text-input {
+    font-size: 16px;
+    border: 0;
+    background: transparent;
+}
+
+
+.default-button {
+    font-size: inherit;
+}
+
+.form-buttons {
+    margin-top: calc(60px - 1rem);
+}
+
+.epi-market-tabs {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+}
+
+.epi-market-button {
+    width: 50%;
+    color: white;
+    border: 0;
+    font-size: inherit;
+}
+
+.inactive {
+    background-color: var(--tab-green);
+}
+
+.highlighted {
+    background-color: var(--primary-background-color);
+}
+
+.label-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pen-square {
+    width: 16px;
+}
+
+.pen-square-white {
+    width: 16px;
+    fill: white;
+}
+
+.gtin-validity {
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.invalid {
+    color: red;
+}
+
+.valid {
+    color: var(--highlight-green)
+}
+
+.product-code-invalid {
+    background-color: var(--input-invalid);
+}
+
+.epi-market-button {
+    padding: 8px 16px;
+    border-radius: 0px 8px 0 0;
+}
+
+.disabled-form-field {
+    background-color: #f3f3f3;
+}
+
+.photo {
+    max-height: 175px;
+    max-width: 100%;
+}

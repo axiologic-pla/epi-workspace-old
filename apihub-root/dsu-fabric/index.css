@@ -1,0 +1,453 @@
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    font-stretch: 100%;
+    src: local(''), url("./assets/fonts/NotoSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Japan';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    font-stretch: 100%;
+    src: local(''),
+    url("./assets/fonts/NotoSansJP-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korea';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    font-stretch: 100%;
+    src: local(''),
+    url("./assets/fonts/NotoSansKR-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans China';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    font-stretch: 100%;
+    src: local(''),
+    url("./assets/fonts/NotoSansTC-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Arab';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    font-stretch: 100%;
+    src: local(''),
+    url("./assets/fonts/NotoSansArabic-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''), url("./assets/fonts/NotoSans-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Japan';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+    url("./assets/fonts/NotoSansJP-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korea';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+    url("./assets/fonts/NotoSansKR-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans China';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+    url("./assets/fonts/NotoSansTC-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Arab';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+    url("./assets/fonts/NotoSansArabic-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+    url("./assets/fonts/NotoSans-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Japan';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+    url("./assets/fonts/NotoSansJP-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korea';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+    url("./assets/fonts/NotoSansKR-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans China';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+    url("./assets/fonts/NotoSansTC-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Arab';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+    url("./assets/fonts/NotoSansArabic-Bold.ttf") format('truetype');
+}
+
+:root {
+    /*colors in design*/
+    --primary-background-color: #328569;
+    --light-green: #9ACFBD;
+    --tab-green: #70AA96;
+    --medium-grey: #565656;
+    --very-light-grey: #dee2e6;
+    --primary-text-color: #FAFAFA;
+    /*not in design*/
+    --input-invalid: #FFCCCC;
+    --disabled: #7a8288;
+    --diffs-background: #DEDEDE;
+    --disabled-background: #f3f3f3;
+    --primary-border-color: #ffffff4d;
+    --medium-green: #097C55;
+    --transparent-green: #2BA64912;
+    --light-grey: #F9F9F9;
+    --teal: #20c997;
+    --highlight-green: #28a745;
+    --highlight-green-hover: #218838;
+    --select-color: #495057;
+    --olivegreen: #013646;
+    --mintgreen: #61E4A3;
+    --beige: #FDF0EC;
+    --grey: #E1E7EF;
+    --info-grey: #F0EEEC;
+    --green-200: #5F0808;
+    --red-200: #CC2A2A;
+    --red-100: #FEEFEE;
+    --yellow-200: #FFCB45;
+    --yellow-100: #FFECBB;
+    --font-scale: 1;
+    /* font-size: 62.5%; !* (62.5/100) * 16px = 10px *!*/
+    --font-size--basic: calc((16px + 0.1vmin) * var(--font-scale));
+    --font-size--M: calc((16px + 0.65vmin) * var(--font-scale));
+    --font-size--L: calc((16px + 1.7vmin) * var(--font-scale));
+    --font-size--XL: calc((16px + 2.3vmin) * var(--font-scale));
+    --default-font: "Noto Sans", "Noto Sans Arab", "Noto Sans Japan", "Noto Sans Korea", "Noto Sans China";
+}
+
+html {
+    height: 100%;
+    font-family: var(--default-font);
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    margin: 0;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-size-adjust: none;
+    font-family: var(--default-font);
+    font-weight: 400;
+}
+
+dialog {
+    padding: 0;
+    outline: none !important;
+    font-family: var(--default-font);
+    position: relative;
+}
+
+button, label, input, h1, h2, h3, h4, div, textarea {
+    font-family: var(--default-font);
+    font-weight: 400;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.modal {
+    border: none;
+}
+
+#page-content {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    min-width: calc(100% - 240px);
+    overflow: scroll;
+    z-index: 0;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.spinner-default-style {
+    outline: none;
+    background: none;
+    position: absolute;
+    top: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    -webkit-animation: rotation .6s infinite linear;
+    -moz-animation: rotation .6s infinite linear;
+    -o-animation: rotation .6s infinite linear;
+    animation: rotation .6s infinite linear;
+    border-left: 6px solid #00aeef26;
+    border-right: 6px solid #00aeef26;
+    border-bottom: 6px solid #00aeef26;
+    border-top: 6px solid #00aeefcc;
+    border-radius: 100%;
+}
+
+pre {
+    overflow: hidden;
+    padding: 10px;
+    background: #FFFFFF;
+    white-space: pre-wrap;
+    color: #565656;
+}
+
+pre code {
+    font-size: 16px;
+    line-height: 2rem;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@-moz-keyframes rotation {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(359deg);
+    }
+}
+
+@-o-keyframes rotation {
+    from {
+        -o-transform: rotate(0deg);
+    }
+    to {
+        -o-transform: rotate(359deg);
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.default-button {
+    background-color: var(--primary-background-color);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.default-button:disabled {
+    cursor: unset;
+    background: var(--very-light-grey);
+    color: grey;
+}
+
+.hidden {
+    display: none;
+}
+
+.copy-button {
+    background-color: var(--primary-background-color);
+    border: 1px solid var(--primary-background-color);
+    padding: 0.35rem 0.75rem;
+    border: transparent;
+    border-radius: 0.25rem;
+}
+
+.copy-button:hover {
+    background-color: var(--highlight-green-hover);
+}
+
+.copy-button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, .5);
+}
+
+.copy-button .button-icon {
+    height: 20px;
+    width: 20px;
+    mask-image: url(./assets/icons/copy.svg);
+    background-color: white;
+    mask-repeat: no-repeat;
+}
+
+.input-invalid {
+    border: 1px solid red !important;
+    border-radius: 8px !important;
+}
+
+.transparent {
+    opacity: 0;
+}
+
+dialog[class="spinner"] {
+    border: none;
+    background: none;
+    overflow: hidden;
+}
+
+/*spinner*/
+.spinner-container {
+    border-radius: 50%;
+    border: none;
+    padding: 5px;
+    background-color: white;
+}
+
+.spin {
+    width: 30px;
+    aspect-ratio: 1;
+    display: grid;
+    -webkit-mask-image: conic-gradient(from 15deg, #0000, #000);
+    animation: l26 1s infinite steps(12);
+}
+
+.spin,
+.spin:before,
+.spin:after {
+    background: radial-gradient(closest-side at 50% 12.5%,
+    #488ffe 96%, #0000) 50% 0/20% 80% repeat-y,
+    radial-gradient(closest-side at 12.5% 50%,
+            #488FFEFF 96%, #0000) 0 50%/80% 20% repeat-x;
+}
+
+.spin:before,
+.spin:after {
+    content: "";
+    grid-area: 1/1;
+    transform: rotate(30deg);
+}
+
+.spin:after {
+    transform: rotate(60deg);
+}
+
+@keyframes l26 {
+    100% {
+        transform: rotate(1turn)
+    }
+}
+
+*[userRights="readonly"] {
+    pointer-events: none !important;
+    opacity: 0.9 !important;
+}
+
+.toast-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 40%;
+    right: 0;
+    align-items: end;
+    padding: 10px;
+    background: none;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.toast-text {
+    color: #000;
+    padding: 1.25rem;
+}
+
+.toast {
+    display: flex;
+    opacity: 100%;
+    background-color: #FFFFFF;
+    justify-content: space-between;
+    width: 100%;
+    border-top: 3px solid;
+    border-radius: 8px;
+}
+
+.toast.info {
+    border-top-color: #33D29C;
+    box-shadow: 0 1px 3px #33D29C;
+}
+
+.toast.warn {
+    border-top-color: #FEC02D;
+    box-shadow: 0 1px 3px #FEC02D;
+}
+
+.toast.error {
+    border-top-color: #EF4C61;
+    box-shadow: 0 1px 3px #EF4C61;
+
+}
+
+.toast-close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    pointer-events: all;
+    padding: 10px;
+}
+
+.pagination-btn.disabled {
+    cursor: initial;
+    background-color: var(--very-light-grey);
+}

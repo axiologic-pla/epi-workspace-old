@@ -1,0 +1,306 @@
+.product-name {
+    font-size: var(--font-size--XL);
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+/*.product-description {
+    font-size: var(--font-size--L);
+}*/
+
+#leaflet-content {
+    text-align: start;
+}
+
+#leaflet-content,
+#leaflet-content p,
+#leaflet-content h4 {
+    font-size: var(--font-size--basic);
+    font-weight: 400;
+}
+
+#leaflet-content .select-lang-text {
+    padding: 35px;
+}
+
+#leaflet-content .languages-list li {
+    text-underline-position: under;
+    text-decoration: underline;
+    padding: 0px 0px 55px 0px;
+    color: blue;
+}
+
+#leaflet-content h2 {
+    font-weight: 700;
+    margin-right: 1rem;
+}
+
+.leaflet-content-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#leaflet-content table {
+    display: block;
+    overflow-x: auto;
+}
+
+/* Force hidden content for images because xslt rule not working for safari < 16. */
+#leaflet-content figure *:not(img) {
+    display: none;
+}
+
+#leaflet-content img {
+    min-width: 100%;
+    min-width: -moz-available; /* WebKit-based browsers will ignore this. */
+    min-width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+    min-width: fill-available;
+}
+
+.leaflet-link {
+    color: #4f4edf;;
+    text-decoration: underline;
+}
+
+
+.leaflet-accordion-item {
+    padding: 0px 3%;
+    border-bottom: 0.5px solid #E5EAEB;
+    line-height: 1.2;
+}
+
+.leaflet-accordion-item h2 {
+    margin-block-end: 0;
+    margin-block-start: 0;
+    padding: 0.7em 0 0.9em;
+}
+
+.leaflet-accordion-item-content {
+    display: none;
+    margin-right: 5px;
+    height: fit-content;
+}
+
+.leaflet-accordion-item.active .leaflet-accordion-item-content {
+    height: fit-content;
+    display: block;
+    position: relative;
+    font-style: normal;
+    font-weight: 400;
+    overflow-x: auto;
+}
+
+.leaflet-accordion-item:before {
+    content: "";
+    visibility: visible;
+    position: relative;
+    float: right;
+    background-image: url(./assets/images/accordion-open.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+
+.leaflet-accordion-item.active:before {
+    background-image: url("./assets/images/accordion-close.svg");
+}
+
+.leaflet-accordion-item table,
+.leaflet-accordion-item table td,
+.leaflet-accordion-item table th {
+    border: 1px solid;
+    border-collapse: collapse;
+    font-size: inherit;
+
+}
+
+.leaflet-accordion-item td, th {
+    padding: 5px;
+    width: auto;
+    height: 100%;
+}
+
+*[dir="RTL"] .leaflet-page .page-content {
+    text-align: right;
+}
+
+#leaflet-content[dir="RTL"] .leaflet-accordion-item:before {
+    float: left;
+    background-position: bottom;
+    top: 2px;
+    display: block;
+}
+
+#leaflet-content[dir="RTL"] #leaflet-content h2 {
+    margin-right: unset;
+    margin-block-start: unset;
+    padding-left: 10%;
+}
+
+
+.preview-epi-modal-dialog {
+    overflow: hidden;
+    width: 75vw;
+    height: 100vh;
+    margin: 5px auto;
+    max-height: calc(100vh - 20px);
+}
+
+preview-epi-modal {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-modal-container {
+    font-size: 1rem;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+
+.preview-modal-container .modal-header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding);
+    border-bottom: var(--header-border);
+    background: #328569;
+    --header-button-color: #FFFFFF;
+    --header-border: none;
+    color: #FFFFFF;
+}
+
+.preview-modal-container .modal-header .modal-title {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.preview-modal-container .modal-header .right-section {
+    font-size: 1.8rem;
+    align-self: flex-start;
+    padding: 5px 10px 0 0;
+}
+
+.preview-modal-container .modal-body {
+    background: #646464;
+    position: relative;
+    overflow: auto;
+    font-size: var(--font-size--basic);
+    font-family: "Noto Sans";
+    flex-grow: 1;
+    max-height: 100%;
+}
+
+
+.leaflet-content-wrapper {
+    background: #fff;
+    position: relative;
+    color: var(--olivegreen);
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.content-wrapper {
+    position: relative;
+    max-width: 414px;
+    min-width: 414px;
+    border-radius: 30px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    height: 960px;
+    margin: 15px auto;
+}
+
+.epi-container {
+    width: 100%;
+    position: relative;
+    max-height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.epi-container .left-aligned-header {
+    background-color: var(--olivegreen);
+    color: #fff;
+}
+
+.epi-container.info-modal .modal-body {
+    padding: 0;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.leaflet-page .page-content {
+    height: 88%;
+    position: relative;
+    color: #04313B;
+    background: #fff;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-size: calc(100% + 0.3vmin);
+}
+
+.leaflet-page ul {
+    padding-left: 40px;
+}
+
+.page-container {
+    background: #013646;
+    color: #fff;
+    border-radius: 30px;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.page-container.leaflet-page {
+    padding: 0px;
+    justify-content: normal;
+}
+
+.left-aligned-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 30px 30px 0px 0px;
+    height: fit-content;
+    padding: 2.5rem 1.5rem;
+}
+
+.left-aligned-header .icon-title-container {
+    width: -moz-available; /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+    position: relative;
+}
+
+#leaflet-content h2 {
+    font-size: var(--font-size--M);
+}
+
+.leaflet-accordion-item:before {
+    margin-top: 1.2em;
+}

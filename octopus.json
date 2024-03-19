@@ -155,6 +155,17 @@
             "cmd": "cd dsu-fabric-ssapp && npm install"
           }
         ]
+      },
+      {
+        "name": "WebSkel",
+        "src": "https://github.com/OutfinityResearch/WebSkel.git",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": "./apihub-root/dsu-fabric",
+            "collectLog": false
+          }
+        ]
       }
     ],
     "patch": [
@@ -294,6 +305,27 @@
           {
             "type": "execute",
             "cmd": "cd gtin-resolver && npm run build"
+          }
+        ]
+      },
+      {
+        "name": "dsu-fabric-build",
+        "actions": [
+          {
+            "type": "copy",
+            "src": "./opendsu-sdk/builds/output/versionLessBoot.js",
+            "target": "./apihub-root/dsu-fabric/bundles/versionLessBoot.js",
+            "options": {
+              "overwrite": true
+            }
+          },
+          {
+            "type": "copy",
+            "src": "./gtin-resolver/build/bundles/gtinResolver.js",
+            "target": "./apihub-root/dsu-fabric/bundles/gtinResolver.js",
+            "options": {
+              "overwrite": true
+            }
           }
         ]
       },

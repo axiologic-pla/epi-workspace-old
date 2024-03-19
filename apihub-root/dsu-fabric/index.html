@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DSU Fabric</title>
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+<div id="page-content"></div>
+<dialog id="before-webskel-loader" class="spinner">
+    <div class="spinner-container">
+        <div class="spin"></div>
+    </div>
+</dialog>
+<script>
+    document.querySelector("#before-webskel-loader").showModal();
+</script>
+<script src="bundles/versionLessBoot.js"></script>
+<script src="bundles/gtinResolver.js"></script>
+<script type="module" src="main.js"></script>
+</body>
+<script src="globalHandlers.js"></script>
+<script src="services/Timer.js"></script>
+</html>

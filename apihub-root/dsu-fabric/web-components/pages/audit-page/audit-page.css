@@ -1,0 +1,47 @@
+audit-page {
+    height: 100%;
+}
+
+.page-header {
+    height: 80px;
+    background-color: #fff;
+    box-shadow: 0 0.15rem 1rem 0 rgba(58, 59, 69, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-background-color);
+    font-weight: 700;
+    text-align: left;
+    padding-left: 60px;
+    font-size: 1.802rem;
+}
+
+.page-body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 60px;
+    color: var(--medium-grey);
+}
+
+.tab-section {
+    display: flex;
+    gap: 1px;
+}
+
+.tab-section div {
+    color: white;
+    text-align: center;
+    line-height: 1.5;
+    width: 50%;
+    border-radius: 8px 8px 0 0;
+    padding: 8px 16px;
+}
+
+
+.highlighted {
+    background-color: var(--medium-green);
+}
+
+.inactive {
+    background-color: var(--tab-green);
+}

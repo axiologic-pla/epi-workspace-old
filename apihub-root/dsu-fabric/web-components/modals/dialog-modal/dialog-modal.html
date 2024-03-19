@@ -1,0 +1,20 @@
+<div class="preview-modal-container">
+    <div class="modal-header">
+        $$header
+        <div class="right-section">
+            <div class="expand-icon pointer"  data-local-action="switchModalView">
+                <img src="./assets/icons/up-down-arrow.svg">
+            </div>
+            <div class="close-icon pointer" data-local-action="closeModal">
+                <img src="./assets/icons/x-mark.svg">
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        $$message
+    </div>
+    <div class="modal-footer">
+        <button class="default-button margin-right" data-local-action="deny">$$denyButtonText</button>
+        <button class="default-button" data-local-action="accept" userrights="$$userRights">$$acceptButtonText</button>
+    </div>
+</div>

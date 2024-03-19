@@ -26,8 +26,8 @@
                     "type": "smartClone",
                     "target": ".",
                     "collectLog": false,
-                    "commit": "0bf971508b697e4796cb013f3840d6e0d3d6499a",
-                    "tag": "v2.0.2"
+                    "commit": "85f4d91d7ce6139fcbe2a02b40f9b301899e2a9e",
+                    "tag": "v2.0.4"
                 },
                 {
                     "type": "execute",
@@ -58,8 +58,8 @@
                     "type": "smartClone",
                     "target": ".",
                     "collectLog": false,
-                    "commit": "23c87ddc4bc63c3ef9222426aec4dca9ef94519a",
-                    "tag": "v1.2.2"
+                    "commit": "40960d3bccd9c895a9c84326da3d904c51b5d1de",
+                    "tag": "v1.2.4"
                 },
                 {
                     "type": "execute",
@@ -83,8 +83,8 @@
                     "type": "smartClone",
                     "target": ".",
                     "collectLog": false,
-                    "commit": "23c87ddc4bc63c3ef9222426aec4dca9ef94519a",
-                    "tag": "v1.2.2"
+                    "commit": "40960d3bccd9c895a9c84326da3d904c51b5d1de",
+                    "tag": "v1.2.4"
                 },
                 {
                     "type": "execute",
@@ -163,6 +163,17 @@
                 {
                     "type": "execute",
                     "cmd": "cd dsu-fabric-ssapp && npm install"
+                }
+            ]
+        },
+        {
+            "name": "WebSkel",
+            "src": "https://github.com/OutfinityResearch/WebSkel.git",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": "./apihub-root/dsu-fabric",
+                    "collectLog": false
                 }
             ]
         }
@@ -304,6 +315,27 @@
                 {
                     "type": "execute",
                     "cmd": "cd gtin-resolver && npm run build"
+                }
+            ]
+        },
+        {
+            "name": "dsu-fabric-build",
+            "actions": [
+                {
+                    "type": "copy",
+                    "src": "./opendsu-sdk/builds/output/versionLessBoot.js",
+                    "target": "./apihub-root/dsu-fabric/bundles/versionLessBoot.js",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
+                    "type": "copy",
+                    "src": "./gtin-resolver/build/bundles/gtinResolver.js",
+                    "target": "./apihub-root/dsu-fabric/bundles/gtinResolver.js",
+                    "options": {
+                        "overwrite": true
+                    }
                 }
             ]
         },

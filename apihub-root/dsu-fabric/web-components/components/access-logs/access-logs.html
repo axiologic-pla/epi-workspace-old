@@ -1,0 +1,22 @@
+<div class="logs-section">
+    <form class="search-section">
+        <div class="input-container-container">
+            <label class="search-label" for="userId">Search by user ID</label>
+            <search-input data-presenter="search-input" data-input="userId" data-result-icon="$$searchResultIcon"
+                          data-value="$$inputValue" data-focus="$$focusInput" data-placeholder="Search by user ID"></search-input>
+        </div>
+        <button class="export-csv pointer" data-local-action="downloadCSV">Export as CSV</button>
+    </form>
+    <div class="table">
+        <div class="column-header first-column">User ID</div>
+        <div class="column-header">Action</div>
+        <div class="column-header">User DID</div>
+        <div class="column-header">User Group</div>
+        <div class="column-header last-column">ISO Date</div>
+        $$items
+    </div>
+    <div class="table-pagination">
+        <button class="pagination-btn margin-right" id="previous" data-local-action="previousTablePage"><<</button>
+        <button class="pagination-btn" id="next" data-local-action="nextTablePage">>></button>
+    </div>
+</div>

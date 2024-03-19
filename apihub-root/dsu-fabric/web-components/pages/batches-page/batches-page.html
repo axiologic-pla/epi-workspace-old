@@ -1,0 +1,35 @@
+<div class="page-header">
+    <div class="page-title">
+        Batches
+    </div>
+</div>
+<div class="page-body">
+    <div class="buttons-section">
+        <button userRights="$$userRights" class="add-batch pointer" data-local-action="navigateToAddBatch">+ADD BATCH
+        </button>
+    </div>
+    <div class="batches-section">
+        <form class="search-section">
+            <label class="search-label" for="productCode">Search by product code</label>
+            <search-input data-presenter="search-input" data-input="productCode" data-result-icon="$$searchResultIcon"
+                          data-value="$$inputValue"
+                          data-focus="$$focusInput" data-placeholder="Search by code"></search-input>
+        </form>
+        <div class="table">
+            <div class="column-header first-column">Brand / Invented Name</div>
+            <div class="column-header">Name of Medicinal Product</div>
+            <div class="column-header">Product Code</div>
+            <div class="column-header">Batch</div>
+            <div class="column-header">Expiry Date<label class="date-header-format"> (dd/mm/yyyy)</label><br>
+                <label class="gs1-col-header">GS1 format (yymmdd)</label></div>
+            <div class="column-header">2D Data Matrix</div>
+            <div class="column-header">Batch Version</div>
+            <div class="column-header last-column">$$editBatchLabel</div>
+            $$items
+        </div>
+        <div class="table-pagination">
+            <button class="pagination-btn margin-right" id="previous" data-local-action="previousTablePage"><<</button>
+            <button class="pagination-btn" id="next" data-local-action="nextTablePage">>></button>
+        </div>
+    </div>
+</div>

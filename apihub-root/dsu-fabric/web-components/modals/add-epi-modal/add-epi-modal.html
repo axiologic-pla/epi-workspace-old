@@ -1,0 +1,39 @@
+<div class="modal-header">
+    <div class="modal-title">Choose language and type of upload</div>
+    <div class="right-section">
+        <div class="expand-icon pointer"  data-local-action="switchModalView">
+            <img src="./assets/icons/up-down-arrow.svg">
+        </div>
+        <div class="close-icon pointer" data-local-action="closeModal">
+            <img src="./assets/icons/x-mark.svg">
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <form class="add-epi-form">
+        <div class="form-item">
+            <label class="form-label hidden" for="language"></label>
+            <select class="form-input first" id="language" name="language" required>
+                $$languageOptions
+            </select>
+        </div>
+        <div class="form-item">
+            <label class="form-label" for="type">Type</label>
+            <select class="form-input" id="type" name="type" required>
+                <option id="leaflet" value="leaflet">Leaflet</option>
+                <option id="smpc" value="SMPC" disabled>SMPC</option>
+            </select>
+        </div>
+        <div class="input-file-container" data-id="epiFiles">
+            <button class="default-button" data-local-action="uploadFiles">Upload Files</button>
+            <label class="form-label hidden" for="epiFiles"></label>
+            <input class="transparent" type="file" multiple webkitdirectory id="epiFiles" name="epiFiles" required data-condition="filesValidation">
+            <div class="files-table"></div>
+        </div>
+        <div class="epi-error"></div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="default-button margin-right" data-local-action="closeModal">Close</button>
+    <button disabled class="default-button" id="accept-button" data-local-action="addEPI">Accept</button>
+</div>

@@ -1,7 +1,7 @@
 {
   "menu-items": [
     {
-      "href": "dsu-fabric-wallet/loader/",
+      "href": "dsu-fabric/",
       "background_color": "#8782E1",
       "icon": "fa-solid fa-building-columns fa-4x",
       "label": "Enterprise Wallet"
