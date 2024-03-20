@@ -52,7 +52,7 @@ const checkIfMigrationIsNeeded = async () => {
     try {
         secret = secretsServiceInstance.readSecretFromDefaultContainerSync(MIGRATION_SECRET_NAME);
     } catch (e) {
-        console.log("Failed to read secret", MIGRATION_SECRET_NAME, e);
+        // ignored and handled below
     }
     if (secret && secret === process.env.EPI_VERSION) {
         return false;
