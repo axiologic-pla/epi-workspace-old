@@ -70,7 +70,7 @@ export class BatchesPage extends CommonPresenterClass {
         <div ${lastRowItem ? "" : `class="${classCellBorder}"`}>${webSkel.sanitize(batch.productCode)}</div>
         <div ${lastRowItem ? "" : `class="${classCellBorder}"`}>${webSkel.sanitize(batch.batchNumber)}</div>
         <div ${lastRowItem ? "" : `class="${classCellBorder}"`}><label class="date-col-label">${this.getFormattedDate(batch.expiryDate, "/")}</label><br><label class="gs1-col-label">(${batch.expiryDate})</label></div>
-        <div class="${createClassString(viewEditClass, lastRowItem ? "" : classCellBorder)}" data-local-action="openDataMatrixModal ${batch.productCode} ${webSkel.sanitize(batch.batchNumber)}">View</div>
+        <div class="${createClassString(viewEditClass, lastRowItem ? "" : classCellBorder)}" data-local-action="openDataMatrixModal" data-batch="${encodeURIComponent(JSON.stringify(batch))}">View</div>
         <div ${lastRowItem ? "" : `class="${classCellBorder}"`}>${batch.version}</div>
         <div class="${createClassString(viewEditClass, lastRowItem ? "" : classCellBorder)}"
              data-local-action="navigateToEditBatch ${batch.productCode} ${webSkel.sanitize(batch.batchNumber)}">${this.editModeLabel}</div>`
@@ -163,8 +163,8 @@ export class BatchesPage extends CommonPresenterClass {
         await webSkel.changeToDynamicPage("manage-batch-page", `manage-batch-page?gtin=${productCode}&&batchId=${batchId}`);
     }
 
-    async openDataMatrixModal(_target, productCode, batchNumber) {
-        await webSkel.showModal("data-matrix-modal", {["product-code"]: productCode, ["batch-number"]: batchNumber});
+    async openDataMatrixModal(_target) {
+        await webSkel.showModal("data-matrix-modal", {["batch"]: _target.getAttribute("data-batch")})
     }
 
     previousTablePage(_target) {

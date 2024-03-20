@@ -239,15 +239,6 @@ input[type="month"] {
     cursor: pointer;
 }
 
-/* Chrome,Safari,Edge */
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-}
-
-input[type="month"]::-webkit-calendar-picker-indicator {
-    display: none;
-}
-
 #displayDate {
     width: 100%;
 }
@@ -256,10 +247,14 @@ input[type="month"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
+/* Chrome,Safari,Edge */
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-clear-button,
 .date-format-remover::-webkit-datetime-edit,
 .date-format-remover::-webkit-inner-spin-button,
 .date-format-remover::-webkit-clear-button {
-    display: none;
+    display: none !important;
 }
 
 .date-format-remover:before {

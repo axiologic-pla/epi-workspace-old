@@ -164,8 +164,8 @@ export class ManageProductPage extends CommonPresenterClass {
     validateProductCode(input, event) {
         let gtin = this.element.querySelector(".gtin-validity");
         let inputContainer = this.element.querySelector(".product-code");
-        let gtinValidationResult = gtinResolver.validationUtils.validateGTIN(input.value);
-        if (gtinValidationResult.isValid) {
+        this.gtinValidationResult = gtinResolver.validationUtils.validateGTIN(input.value);
+        if (this.gtinValidationResult.isValid) {
             gtin.classList.remove("invalid");
             gtin.classList.add("valid");
             gtin.innerText = "GTIN is valid";
@@ -173,7 +173,7 @@ export class ManageProductPage extends CommonPresenterClass {
         } else {
             gtin.classList.add("invalid");
             gtin.classList.remove("valid");
-            gtin.innerText = gtinValidationResult.message;
+            gtin.innerText = this.gtinValidationResult.message;
             inputContainer.classList.add("product-code-invalid");
         }
     }
@@ -211,7 +211,7 @@ export class ManageProductPage extends CommonPresenterClass {
         this.invalidate();
     }
 
-    addOrUpdateEpi(modalData) {
+    async addOrUpdateEpi(modalData) {
         const existingLeafletIndex = this.productData.epiUnits.findIndex(epi => epi.language === modalData.language);
         if (existingLeafletIndex !== -1) {
             /* epi already exists */
@@ -219,8 +219,17 @@ export class ManageProductPage extends CommonPresenterClass {
                 /* previously added epi */
                 modalData.action = "add"
             } else {
-                /* previously existent epi */
-                modalData.action = "update"
+                let accept = await webSkel.showModal("dialog-modal", {
+                    header: "Warning!!!",
+                    message: `This action will replace ${modalData.languageLabel} ${modalData.type}`,
+                    denyButtonText: "Cancel",
+                    acceptButtonText: "Proceed"
+                }, true);
+                if (accept) {
+                    modalData.action = "update"
+                } else {
+                    return
+                }
             }
             this.productData.epiUnits[existingLeafletIndex] = modalData;
             console.log(`Updated epi, language: ${modalData.language}`);
@@ -229,13 +238,13 @@ export class ManageProductPage extends CommonPresenterClass {
             modalData.action = "add";
             this.productData.epiUnits.push(modalData);
         }
+        this.selected = "epi";
+        this.invalidate();
     }
 
     async handleEPIModalData(data) {
         data.id = webSkel.appServices.generateID(16);
-        this.addOrUpdateEpi(data)
-        this.selected = "epi";
-        this.invalidate();
+        await this.addOrUpdateEpi(data)
     }
 
     updateMarket(modalData) {
@@ -305,42 +314,45 @@ export class ManageProductPage extends CommonPresenterClass {
         //else closed without submitting
     }
 
-    productCodeCondition(element, formData) {
-        let inputContainer = webSkel.getClosestParentElement(element, ".product-code");
-        return !inputContainer.classList.contains("product-code-invalid");
-    }
+    validateFormData(data) {
+        const errors = [];
 
-    otherFieldsCondition(element, formData) {
-        return !webSkel.appServices.hasCodeOrHTML(element.value);
-    }
+        if (!data.productCode) {
+            errors.push('Product Code is required.');
+        }
 
+        if (!data.inventedName) {
+            errors.push('Brand/invented name is required.');
+        }
+        if (!data.nameMedicinalProduct) {
+            errors.push('Name of Medicinal Product is required.');
+        }
+
+        if (this.gtinValidationResult && !this.gtinValidationResult.isValid) {
+            errors.push(this.gtinValidationResult.message)
+        }
+
+        return {isValid: errors.length === 0, validationErrors: errors}
+    }
 
     async saveProduct(_target) {
-        const conditions = {
-            "productCodeCondition": {
-                fn: this.productCodeCondition,
-                errorMessage: "Invalid GTIN!"
-            },
-            "otherFieldsCondition": {
-                fn: this.otherFieldsCondition,
-                errorMessage: "Invalid input!"
-            }
-        };
-        let formData = await webSkel.extractFormInformation(_target, conditions);
-        if (formData.isValid) {
-            for (const key in formData.data) {
-                if (formData.data[key]) {
-                    this.productData[key] = formData.data[key];
-                }
-            }
+        // let formData = await webSkel.extractFormInformation(_target);
+        let validationResult = this.validateFormData(this.productData);
+        if (validationResult.isValid) {
             await webSkel.appServices.saveProduct(this.productData);
+        } else {
+            validationResult.validationErrors.forEach((err) => {
+                webSkel.notificationHandler.reportUserRelevantError(err);
+            })
         }
     }
 
     async updateProduct() {
-        const conditions = {"otherFieldsCondition": {fn: this.otherFieldsCondition, errorMessage: "Invalid input!"}};
-        let formData = await webSkel.extractFormInformation(this.element.querySelector("form"), conditions);
-        if (formData.isValid) {
+        //const conditions = {"otherFieldsCondition": {fn: this.otherFieldsCondition, errorMessage: "Invalid input!"}};
+        //  let formData = await webSkel.extractFormInformation(this.element.querySelector("form"));
+        let validationResult = this.validateFormData(this.productData);
+
+        if (validationResult.isValid) {
             let diffs = webSkel.appServices.getProductDiffs(this.existingProduct, this.productData);
             let confirmation = await webSkel.showModal("data-diffs-modal", {
                 diffs: encodeURIComponent(JSON.stringify(diffs)),
@@ -348,12 +360,16 @@ export class ManageProductPage extends CommonPresenterClass {
             }, true);
             if (confirmation) {
                 let shouldSkipMetadataUpdate = false;
-                if(!diffs.needsMetadataUpdate){
+                if (!diffs.needsMetadataUpdate) {
                     shouldSkipMetadataUpdate = true;
                 }
                 await webSkel.appServices.saveProduct(this.productData, this.existingProduct.photo, true, shouldSkipMetadataUpdate);
             }
             //else cancel button pressed
+        } else {
+            validationResult.validationErrors.forEach((err) => {
+                webSkel.notificationHandler.reportUserRelevantError(err);
+            })
         }
     }
 

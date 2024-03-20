@@ -10,7 +10,7 @@ export class AddEpiModal {
         let languages = gtinResolver.Languages.getListAsVM();
         let stringHTML = "";
         for (let language of languages) {
-            stringHTML += `<option ${!language.disabled || "disabled"} ${!language.selected || "selected"} value="${language.value}">${language.label}</option>`;
+            stringHTML += `<option ${!language.disabled || "disabled"} ${!language.selected || "selected"} value="${language.value}" lang-label="${language.label}">${language.label}</option>`;
         }
         this.languageOptions = stringHTML;
     }
@@ -129,7 +129,8 @@ export class AddEpiModal {
             if (validEPIContent.message) {
                 webSkel.notificationHandler.reportUserRelevantInfo(validEPIContent.message);
             }
-
+            let languageLabel = formData.elements.language.element.options[formData.elements.language.element.selectedIndex].getAttribute("lang-label")
+            resultObject.languageLabel = languageLabel;
             webSkel.closeModal(_target, resultObject);
         } else {
             let epiError = this.element.querySelector(".epi-error");

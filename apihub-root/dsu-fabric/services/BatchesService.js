@@ -159,6 +159,7 @@ export class BatchesService {
         }
         dateInput.addEventListener('click', function () {
             this.blur();
+            this.oldValue = this.value;
             if ('showPicker' in this) {
                 this.showPicker();
             }

@@ -110,6 +110,13 @@ export class ManageBatchPage extends CommonPresenterClass {
     detectInputChange(event) {
         let inputName = event.target.name;
         if (inputName === "expiryDate") {
+            if (!event.target.value) {
+                event.stopImmediatePropagation();
+                event.preventDefault();
+                webSkel.notificationHandler.reportUserRelevantError("Expiry date can is a mandatory field and can not be empty. Please select a valid date");
+                event.target.value = event.target.oldValue;
+                return;
+            }
             this.updatedBatch.expiryDate = webSkel.appServices.formatBatchExpiryDate(event.target.value);
             //to do format with 00 if no day in date
             this.element.querySelector("label.gs1-date").innerHTML = `GS1 format (${this.updatedBatch.expiryDate.length === 4 ? this.updatedBatch.expiryDate + "00" : this.updatedBatch.expiryDate})`
@@ -213,7 +220,7 @@ export class ManageBatchPage extends CommonPresenterClass {
         this.reloadLeafletTab(this.getEncodedEPIS(this.updatedBatch.EPIs));
     }
 
-    addOrUpdateEpi(EPIData) {
+    async addOrUpdateEpi(EPIData) {
         const existingLeafletIndex = (this.updatedBatch.EPIs || []).findIndex(epi => epi.language === EPIData.language);
         if (existingLeafletIndex !== -1) {
             /* epi already exists */
@@ -221,8 +228,18 @@ export class ManageBatchPage extends CommonPresenterClass {
                 /* previously added epi */
                 EPIData.action = "add"
             } else {
-                /* previously existent epi */
-                EPIData.action = "update"
+                let accept = await webSkel.showModal("dialog-modal", {
+                    header: "Warning!!!",
+                    message: `This action will replace ${EPIData.languageLabel} ${EPIData.type}`,
+                    denyButtonText: "Cancel",
+                    acceptButtonText: "Proceed"
+                }, true);
+                if (accept) {
+                    EPIData.action = "update"
+                } else {
+                    return
+                }
+
             }
             this.updatedBatch.EPIs[existingLeafletIndex] = EPIData;
             console.log(`Updated epi, language: ${EPIData.language}`);
@@ -231,13 +248,13 @@ export class ManageBatchPage extends CommonPresenterClass {
             EPIData.action = "add";
             this.updatedBatch.EPIs.push(EPIData);
         }
+        this.onChange();
+        this.reloadLeafletTab(this.getEncodedEPIS(this.updatedBatch.EPIs));
     }
 
     async handleEPIModalData(EPIData) {
         EPIData.id = webSkel.appServices.generateID(16);
-        this.addOrUpdateEpi(EPIData);
-        this.onChange();
-        this.reloadLeafletTab(this.getEncodedEPIS(this.updatedBatch.EPIs));
+        await this.addOrUpdateEpi(EPIData);
     }
 
     productCodeCondition(element, formData) {
@@ -249,40 +266,45 @@ export class ManageBatchPage extends CommonPresenterClass {
         return !webSkel.appServices.hasCodeOrHTML(element.value);
     }
 
+    validateFormData(data) {
+        const errors = [];
+        if (!data.productCode || data.productCode === "no-selection") {
+            errors.push('No selection for Product Code.');
+        }
+
+        if (!/^[A-Za-z0-9]{1,20}$/.test(data.batchNumber)) {
+            errors.push('Batch number is a mandatory field and can contain only alphanumeric characters and a maximum length of 20');
+        }
+
+        if (!data.expiryDate) {
+            errors.push('Expiration date is a mandatory field.');
+        }
+        return {isValid: errors.length === 0, validationErrors: errors}
+    }
+
     async addBatch(_target) {
-        const conditions = {
-            "productCodeCondition": {
-                fn: this.productCodeCondition,
-                errorMessage: "Please select a product code! "
-            },
-            "otherFieldsCondition": {
-                fn: this.otherFieldsCondition,
-                errorMessage: "Invalid input!"
-            }
-        };
+        let formData = await webSkel.extractFormInformation(_target);
 
-        let formData = await webSkel.extractFormInformation(_target, conditions);
-
-        if (formData.isValid) {
+        let validationResult = this.validateFormData(formData.data);
+        if (validationResult.isValid) {
             formData.data.expiryDate = webSkel.appServices.formatBatchExpiryDate(formData.data.expiryDate);
             if (webSkel.appServices.getDateInputTypeFromDateString(formData.data.expiryDate) === 'month') {
                 formData.data.expiryDate = webSkel.appServices.prefixMonthDate(formData.data.expiryDate);
             }
             formData.data.EPIs = this.updatedBatch.EPIs;
             await webSkel.appServices.saveBatch(formData.data);
+        } else {
+            validationResult.validationErrors.forEach((err) => {
+                webSkel.notificationHandler.reportUserRelevantError(err);
+            })
         }
 
     }
 
     async updateBatch() {
-        const conditions = {
-            "otherFieldsCondition": {
-                fn: this.otherFieldsCondition,
-                errorMessage: "Invalid input!"
-            }
-        };
-        const formData = await webSkel.extractFormInformation(this.element.querySelector("form"), conditions);
-        if (formData.isValid) {
+        const formData = await webSkel.extractFormInformation(this.element.querySelector("form"));
+        let validationResult = this.validateFormData(this.updatedBatch);
+        if (validationResult.isValid) {
             let expiryDate = webSkel.appServices.formatBatchExpiryDate(formData.data.expiryDate);
             if (webSkel.appServices.getDateInputTypeFromDateString(expiryDate) === 'month') {
                 expiryDate = webSkel.appServices.prefixMonthDate(expiryDate);
@@ -307,6 +329,10 @@ export class ManageBatchPage extends CommonPresenterClass {
 
                 await webSkel.appServices.saveBatch(this.updatedBatch, true, shouldSkipMetadataUpdate);
             }
+        } else {
+            validationResult.validationErrors.forEach((err) => {
+                webSkel.notificationHandler.reportUserRelevantError(err);
+            })
         }
     }
 

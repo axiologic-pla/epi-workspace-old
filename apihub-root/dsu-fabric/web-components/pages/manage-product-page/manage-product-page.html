@@ -1,7 +1,7 @@
 <div class="page-header">
-        <div class="page-title">
-            Manage Product
-        </div>
+    <div class="page-title">
+        Manage Product
+    </div>
     <div class="product-version">
         version: $$productVersion
     </div>
@@ -24,18 +24,18 @@
                     <img class="pen-square" src="./assets/icons/pen-square.svg" alt="pen-square">
                 </div>
                 <input userRights="$$userRights" type="text" class="text-input" name="inventedName" id="inventedName"
-                       placeholder="Add product name" data-condition="otherFieldsCondition" required>
+                       placeholder="Add product name" required>
             </div>
             <div class="form-field-container">
                 <div class="form-field name-of-medicinal-product">
                     <div class="label-container">
-                        <label class="label" for="nameMedicinalProduct" userRights="$$userRights">Name of Medicinal Product</label>
+                        <label class="label" for="nameMedicinalProduct" userRights="$$userRights">Name of Medicinal
+                            Product</label>
                         <img class="pen-square" src="./assets/icons/pen-square.svg" alt="pen-square">
                     </div>
                     <textarea userRights="$$userRights" class="text-input medicinal-product-name-input"
                               name="nameMedicinalProduct"
-                              id="nameMedicinalProduct" placeholder="Add product description" required
-                              data-condition="otherFieldsCondition"></textarea>
+                              id="nameMedicinalProduct" placeholder="Add product description" required></textarea>
                 </div>
                 <div class="form-field product-photo-field">
                     <div class="label-container">
@@ -54,23 +54,15 @@
             </div>
             <div class="form-field material-code">
                 <div class="label-container">
-                    <label class="label" for="internalMaterialCode" userRights="$$userRights">Internal Material Code</label>
+                    <label class="label" for="internalMaterialCode" userRights="$$userRights">Internal Material
+                        Code</label>
                     <img class="pen-square" src="./assets/icons/pen-square.svg" alt="pen-square">
                 </div>
                 <input userRights="$$userRights" type="text" class="text-input" name="internalMaterialCode"
                        id="internalMaterialCode"
-                       placeholder="Add internal material code" data-condition="otherFieldsCondition">
+                       placeholder="Add internal material code">
             </div>
 
-            <!-- <div class="form-field">
-                 <div class="label-container">
-                     <label class="label" for="patientLeafletInfo">Patient Specific Information Leaflet</label>
-                     <img class="pen-square" src="./assets/icons/pen-square.svg" alt="pen-square">
-                 </div>
-                 <input userRights="$$userRights" type="text" class="text-input" name="patientLeafletInfo"
-                        id="patientLeafletInfo"
-                        placeholder="Add Patient Specific Information Leaflet">
-             </div>-->
             <div class="form-buttons">
                 <button class="default-button" data-local-action="navigateToProductsPage">Cancel</button>
                 <button userRights="$$userRights" class="default-button" id="accept-button"
@@ -79,26 +71,6 @@
             </div>
         </div>
         <div class="column-right">
-            <!--<div class="form-field-container">
-                <div class="form-field substance">
-                    <div class="label-container">
-                        <label class="label" for="substance">Substance</label>
-                        <img class="pen-square" src="./assets/icons/pen-square.svg" alt="pen-square">
-                    </div>
-                    <input userRights="$$userRights" type="text" class="text-input" name="substance" id="substance"
-                           placeholder="Add substance">
-                </div>
-                <div class="form-field strength">
-                    <div class="label-container">
-                        <label class="label" for="strength">Strength</label>
-                        <img class="pen-square" src="./assets/icons/pen-square.svg" alt="pen-square">
-                    </div>
-                    <input userRights="$$userRights" type="text" class="text-input" name="strength" id="strength"
-                           placeholder="Add product strength">
-                </div>
-                <button userrights="$$userRights" class="tab-button pointer" data-local-action="addS">+ Add ePI</button>
-
-            </div>-->
             <div class="epi-market-management">
                 <div class="epi-market-tabs">
                     <button class="epi-market-button pointer highlighted" id="epi" data-local-action="switchTab">
