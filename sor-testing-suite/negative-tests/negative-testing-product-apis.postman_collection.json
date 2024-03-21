@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "40cf1952-d9d9-4be1-b108-4e7a66932a76",
+		"_postman_id": "bea5d93f-d52b-4ff5-b15e-11ef19fbf050",
 		"name": "Negative-Testing-Product-Apis",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27954575"
@@ -369,8 +369,8 @@
 					}
 				},
 				"url": {
-					"raw": "POST https://mah1.dev.pladevs.com/integration/product/",
-					"protocol": "POST https",
+					"raw": "https://mah1.dev.pladevs.com/integration/product/",
+					"protocol": "https",
 					"host": [
 						"mah1",
 						"dev",
@@ -407,8 +407,8 @@
 					}
 				},
 				"url": {
-					"raw": "POST https://mah1.dev.pladevs.com/integration/product/00000000010054",
-					"protocol": "POST https",
+					"raw": "https://mah1.dev.pladevs.com/integration/product/00000000010054",
+					"protocol": "https",
 					"host": [
 						"mah1",
 						"dev",
@@ -742,7 +742,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "POST https://mah1.dev.pladevs.com/integration/product/00000000010054\n{\n    \"messageType\": \"Product\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010054\",\n        \"inventedName\": \"BOUNTY\",\n        \"internalMaterialCode\": \"\",\n        \"strengths\": [\n              {\n                  \"substance\": \"Ibuprofen\",\n                  \"strength\": \"10mg\"\n              }\n        ],\n        \"markets\": [\n            { \n                \"marketId\": \"AF\",\n                \"nationalCode\": \"123\",\n                \"mahName\": \"10mga\",\n                \"mahAddress\": \"10mga\",\n                \"legalEntityName\": \"10mga\"\n            }\n        ]\n\n    }\n}\n",
+					"raw": "{\n    \"messageType\": \"Product\",\n    \"messageTypeVersion\": 1,\n    \"senderId\": \"ManualUpload\",\n    \"messageId\": \"S000001\",\n    \"payload\": {\n        \"productCode\": \"00000000010054\",\n        \"inventedName\": \"BOUNTY\",\n        \"internalMaterialCode\": \"\",\n        \"strengths\": [\n              {\n                  \"substance\": \"Ibuprofen\",\n                  \"strength\": \"10mg\"\n              }\n        ],\n        \"markets\": [\n            { \n                \"marketId\": \"AF\",\n                \"nationalCode\": \"123\",\n                \"mahName\": \"10mga\",\n                \"mahAddress\": \"10mga\",\n                \"legalEntityName\": \"10mga\"\n            }\n        ]\n\n    }\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
