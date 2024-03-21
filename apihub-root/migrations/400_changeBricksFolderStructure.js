@@ -15,27 +15,29 @@ async function moveBricksForDomain(domain) {
         const subfolders = await fs.readdir(BRICK_STORAGE_PATH);
 
         for (const subfolder of subfolders) {
-            const subfolderPath = path.join(BRICK_STORAGE_PATH, subfolder);
-            const brickFiles = await fs.readdir(subfolderPath);
+            if(subfolder.length > 2) {
+                const subfolderPath = path.join(BRICK_STORAGE_PATH, subfolder);
+                const brickFiles = await fs.readdir(subfolderPath);
 
-            for (const brickName of brickFiles) {
-                const newSubfolderName = brickName.substring(0, 2);
-                const newSubfolderPath = path.join(BRICK_STORAGE_PATH, newSubfolderName);
+                for (const brickName of brickFiles) {
+                    const newSubfolderName = brickName.substring(0, 2);
+                    const newSubfolderPath = path.join(BRICK_STORAGE_PATH, newSubfolderName);
 
-                // Create new subfolder if it doesn't exist
-                await fs.mkdir(newSubfolderPath, {recursive: true});
+                    // Create new subfolder if it doesn't exist
+                    await fs.mkdir(newSubfolderPath, {recursive: true});
 
-                // Move brick file to new subfolder
-                const oldBrickPath = path.join(subfolderPath, brickName);
-                const newBrickPath = path.join(newSubfolderPath, brickName);
-                await fs.rename(oldBrickPath, newBrickPath);
-            }
+                    // Move brick file to new subfolder
+                    const oldBrickPath = path.join(subfolderPath, brickName);
+                    const newBrickPath = path.join(newSubfolderPath, brickName);
+                    await fs.rename(oldBrickPath, newBrickPath);
+                }
 
-            try {
-                await fs.rm(subfolderPath, {recursive: true, maxRetries: 5, force: true});
-            } catch (error) {
-                // fake error dir not empty
-                console.error(`Error removing old subfolder ${subfolderPath}: ${error}`);
+                try {
+                    await fs.rm(subfolderPath, {recursive: true, maxRetries: 5, force: true});
+                } catch (error) {
+                    // fake error dir not empty
+                    console.error(`Error removing old subfolder ${subfolderPath}: ${error}`);
+                }
             }
         }
 
