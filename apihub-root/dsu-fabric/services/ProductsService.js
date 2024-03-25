@@ -119,7 +119,9 @@ export class ProductsService {
         try {
             productPhotoPayload = await $$.promisify(webSkel.client.getImage)(productCode, version);
         } catch (err) {
-            webSkel.notificationHandler.reportUserRelevantWarning(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't retrieve image for product code: ${productCode}. <br> Please check your network connection and configuration and try again.`), err);
+            if(err.rootCause !== "missingData"){
+                webSkel.notificationHandler.reportUserRelevantWarning(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't retrieve image for product code: ${productCode}. <br> Please check your network connection and configuration and try again.`), err);
+            }
         }
         return productPhotoPayload;
     }
