@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div class="page-body">
+<div class="page-body $$pageMode">
     <div class="read-only-label">$$readOnlyLabel</div>
     <form class="batch-data-form">
         <div class="column-left">
@@ -16,7 +16,14 @@
                     <label class="label" for="productCode">Product Code</label>
                     $$penImage
                 </div>
-                $$productCodeInput
+                <select class="double-state-element" page-mode="add-batch" id="productCode"
+                        data-condition="productCodeCondition">
+                    <option selected value="no-selection" id="placeholder-option">Select a product</option>
+                </select>
+                <input page-mode="edit-batch" type="text" class="text-input double-state-element" name="productCode"
+                       id="productCode"
+                       autocomplete="off" disabled
+                       value="$$productCode">
             </div>
             <div class="form-field $$formFieldStateClass">
                 <div class="label-container">

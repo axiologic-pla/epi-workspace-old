@@ -16,11 +16,11 @@ export class StrengthsTab extends CommonPresenterClass {
                     continue;
                 }
                 stringHTML += `<div class="strength-unit" data-id="${strength.id}">
-                                <div class="strength-details">${webSkel.sanitize(strength.substance)} - ${webSkel.sanitize(strength.strength)}</div>
+                                <div class="strength-details">${strength.substance ? webSkel.sanitize(strength.substance) + ' - ' : ''}${webSkel.sanitize(strength.strength)}</div>
                                 ${this.userRights === constants.USER_RIGHTS.WRITE ? `<div class="delete-button pointer" data-local-action="deleteStrength">
                                         <img class="strength-img" src="./assets/icons/thrash.svg" alt="thrash">
                                     </div>` : ''
-                                }   
+                }   
                               </div>`;
             }
         } else {

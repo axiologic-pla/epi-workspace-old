@@ -159,8 +159,8 @@ export class BatchesPage extends CommonPresenterClass {
         await webSkel.changeToDynamicPage("manage-batch-page", `manage-batch-page`);
     }
 
-    async navigateToEditBatch(_target, productCode, batchId) {
-        await webSkel.changeToDynamicPage("manage-batch-page", `manage-batch-page?gtin=${productCode}&&batchId=${batchId}`);
+    async navigateToEditBatch(_target, productCode, batchNumber) {
+        await webSkel.changeToDynamicPage("manage-batch-page", `manage-batch-page?productCode=${productCode}&&batchNumber=${batchNumber}`);
     }
 
     async openDataMatrixModal(_target) {

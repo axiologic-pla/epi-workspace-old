@@ -148,6 +148,7 @@ export class BatchesService {
         dateInput.classList.add('form-control');
         dateInput.setAttribute('name', 'expiryDate');
         dateInput.setAttribute('type', dateInputType);
+        dateInput.setAttribute('min', "2000-01-01");
         dateInput.required = true;
         if (assignDateValue) {
             /* to reverse the format of the date displayed on UI */
@@ -511,10 +512,7 @@ export class BatchesService {
                 await navigateToPage("manage-product-page");
             }, 3000);
         }
-        const productOptions = products.map(product => {
-            return `<option value="${product.productCode}"> ${product.productCode} - ${product.inventedName} </option>`;
-        }).join("");
-        return {productOptions, products}
+        return products
     }
 
     async getBatches(number = undefined, query = undefined, sortDirection = "desc") {

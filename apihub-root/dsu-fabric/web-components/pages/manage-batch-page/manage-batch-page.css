@@ -33,6 +33,11 @@
     color: var(--medium-grey);
 }
 
+.double-state-element:not([page-mode="add-batch"]),
+.double-state-element:not([page-mode="edit-batch"]) {
+    display: none !important;
+}
+
 .batch-data-form {
     display: flex;
     flex-direction: row;

@@ -9,8 +9,8 @@ export class ManageBatchPage extends CommonPresenterClass {
         super(element, invalidate);
 
         let params = webSkel.getHashParams();
-        this.gtin = params.gtin;
-        this.batchId = params.batchId;
+        this.productCode = params.productCode || "";
+        this.batchNumber = params.batchNumber || "";
         this.pageTitle = "";
         this.formFieldStateClass = "";
         this.inputState = "";
@@ -18,21 +18,19 @@ export class ManageBatchPage extends CommonPresenterClass {
         this.formActionButtonText = "";
         this.formActionButtonFunction = "";
         this.batch = {};
-        this.batchNumber = "";
         this.batchVersion = 0;
         this.product = {};
-        this.productCode = "";
         this.packagingSiteName = "";
         this.enableExpiryDate = "";
         this.enableExpiryDateCheck = true;
         this.productInventedName = "-";
         this.productMedicinalName = "-";
-        this.productCodeInput = "";
         this.penImage = "";
         this.formActionButtonState = "";
         this.leafletsInfo = "[]";
         this.updatedBatch = {}
-        this.pageMode = this.gtin ? "EDIT_BATCH" : "ADD_BATCH";
+        this.pageMode = this.productCode ? "EDIT_BATCH" : "ADD_BATCH";
+        this.mode = this.productCode ? "edit-mode" : "add-mode";
         this.invalidate(async () => {
             await this.initializePageMode(this.pageMode);
         });
@@ -42,23 +40,17 @@ export class ManageBatchPage extends CommonPresenterClass {
     async initializePageMode(pageMode) {
         const initPage = {
             ADD_BATCH: async () => {
-                let {productOptions, products} = await webSkel.appServices.getProductsForSelect();
+                this.products = await webSkel.appServices.getProductsForSelect();
                 this.pageTitle = "Add Batch";
                 this.formActionButtonText = "Add Batch";
                 this.formActionButtonFunction = "addBatch";
-                this.products = products;
                 this.enableExpiryDate = "on";
                 this.enableExpiryDateCheck = "checked";
-                this.productCodeInput = `<select name="productCode" id="productCode" data-condition="productCodeCondition">
-                                            <option selected value="no-selection" id="placeholder-option">Select a product</option>
-                                            ${productOptions}
-                                        </select>`;
                 this.penImage = `<img class="pen-square" src="./assets/icons/pen-square.svg" alt="pen-square">`;
                 this.updatedBatch = webSkel.appServices.createNewBatch({}, []);
             },
-
             EDIT_BATCH: async () => {
-                let {batch, product, EPIs} = await webSkel.appServices.getBatchData(this.gtin, this.batchId);
+                let {batch, product, EPIs} = await webSkel.appServices.getBatchData(this.productCode, this.batchNumber);
                 this.existingBatch = batch;
                 let batchModel = webSkel.appServices.createNewBatch(batch, EPIs);
                 let enableExpiryDayCheck = "";
@@ -82,8 +74,6 @@ export class ManageBatchPage extends CommonPresenterClass {
                 this.enableExpiryDateCheck = enableExpiryDayCheck;
                 this.productInventedName = product.inventedName;
                 this.productMedicinalName = product.nameMedicinalProduct;
-                this.productCodeInput = `<input type="text" class="text-input" name="productCode" id="productCode" autocomplete="off" disabled
-                                        value="${product.productCode}">`;
                 this.penImage = "";
                 this.formActionButtonState = "disabled";
                 this.leafletsInfo = this.getEncodedEPIS(EPIs);
@@ -173,6 +163,13 @@ export class ManageBatchPage extends CommonPresenterClass {
         const pageModes = {
 
             ADD_BATCH: () => {
+                let selectInput = this.element.querySelector("select#productCode");
+                this.products.forEach(product => {
+                    let option = document.createElement("option");
+                    option.value = product.productCode;
+                    option.text = `${product.productCode} - ${product.inventedName}`;
+                    selectInput.appendChild(option);
+                });
                 dateContainer.insertBefore(webSkel.appServices.createDateInput('date'), dateContainer.firstChild);
                 this.element.querySelector('#productCode').addEventListener('change', async (event) => {
                     const {value: productCode} = event.target;
