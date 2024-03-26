@@ -29,8 +29,12 @@ async function moveBricksForDomain(domain) {
                     // Move brick file to new subfolder
                     const oldBrickPath = path.join(subfolderPath, brickName);
                     const newBrickPath = path.join(newSubfolderPath, brickName);
-                    await fs.rename(oldBrickPath, newBrickPath);
-                }
+
+                    // Copy the file
+                    await fs.copyFile(oldBrickPath, newBrickPath);
+
+                    // Delete the original file
+                    await fs.unlink(oldBrickPath);                }
 
                 try {
                     await fs.rm(subfolderPath, {recursive: true, maxRetries: 5, force: true});
