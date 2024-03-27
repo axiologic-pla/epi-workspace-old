@@ -272,7 +272,7 @@ export class ManageBatchPage extends CommonPresenterClass {
             errors.push('No selection for Product Code.');
         }
 
-        if (!/^[A-Za-z0-9]{1,20}$/.test(data.batchNumber)) {
+        if (!/^[a-zA-Z0-9\/\-]{1,20}$/.test(data.batchNumber)) {
             errors.push('Batch number is a mandatory field and can contain only alphanumeric characters and a maximum length of 20');
         }
 
