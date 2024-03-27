@@ -23,12 +23,14 @@ export class EPIsService {
 
         if (epi.action !== constants.EPI_ACTIONS.DELETE) {
             result.payload.xmlFileContent = epi.xmlFileContent;
-            result.payload.otherFilesContent = epi.otherFilesContent.map(payload => {
-                return {
-                    filename: payload.filename,
-                    fileContent: payload.fileContent.split("base64,")[1]
-                }
-            })
+            if (epi.otherFilesContent) {
+                result.payload.otherFilesContent = epi.otherFilesContent.map(payload => {
+                    return {
+                        filename: payload.filename,
+                        fileContent: payload.fileContent.split("base64,")[1]
+                    }
+                })
+            }
         }
         return result;
     }
