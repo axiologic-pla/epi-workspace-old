@@ -30,7 +30,7 @@ export class ManageBatchPage extends CommonPresenterClass {
         this.leafletsInfo = "[]";
         this.updatedBatch = {}
         this.pageMode = this.productCode ? "EDIT_BATCH" : "ADD_BATCH";
-        this.mode = this.productCode ? "edit-mode" : "add-mode";
+        this.mode = this.productCode ? "edit-bach" : "add-batch";
         this.invalidate(async () => {
             await this.initializePageMode(this.pageMode);
         });

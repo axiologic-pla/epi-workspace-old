@@ -33,8 +33,8 @@
     color: var(--medium-grey);
 }
 
-.double-state-element:not([page-mode="add-batch"]),
-.double-state-element:not([page-mode="edit-batch"]) {
+.EDIT_BATCH .double-state-element[page-mode="add-batch"],
+.ADD_BATCH .double-state-element[page-mode="edit-batch"] {
     display: none !important;
 }
 
