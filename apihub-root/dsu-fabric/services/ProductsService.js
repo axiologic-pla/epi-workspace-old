@@ -288,6 +288,11 @@ export class ProductsService {
             if(Object.keys(diffs).length>0 || Object.keys(marketDiffs).length>0 || Object.keys(strengthDiffs).length>0){
                 result.needsMetadataUpdate = true;
             }
+
+            if(Object.keys(diffs).length === 1 && diffs.photo){
+                result.needsMetadataUpdate = false;
+            }
+
             Object.keys(diffs).forEach(key => {
                 if (key === "photo") {
                     result.push(webSkel.appServices.getPhotoDiffViewObj(diffs[key], key, constants.MODEL_LABELS_MAP.PRODUCT));
