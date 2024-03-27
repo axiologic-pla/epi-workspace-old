@@ -17,9 +17,7 @@ export class ManageProductPage extends CommonPresenterClass {
             this.buttonName = "Update Product";
             this.operationFnName = "updateProduct";
             let {
-                productPayload,
-                productPhotoPayload,
-                EPIs,
+                productPayload, productPhotoPayload, EPIs,
             } = await webSkel.appServices.getProductData(params["product-code"]);
             let productModel = webSkel.appServices.createNewProduct(productPayload, productPhotoPayload, EPIs);
             if (!productModel.photo.startsWith("data:image")) {
@@ -42,11 +40,7 @@ export class ManageProductPage extends CommonPresenterClass {
     beforeRender() {
         let tabInfo = this.productData.epiUnits.map((data) => {
             return {
-                language: data.language,
-                filesCount: data.filesCount,
-                id: data.id,
-                action: data.action,
-                type: data.type
+                language: data.language, filesCount: data.filesCount, id: data.id, action: data.action, type: data.type
             };
         });
         tabInfo = encodeURIComponent(JSON.stringify(tabInfo));
@@ -54,10 +48,7 @@ export class ManageProductPage extends CommonPresenterClass {
 
         let strengthsInfo = this.productData.strengthUnits.map((data) => {
             return {
-                substance: data.substance,
-                strength: data.strength,
-                id: data.id,
-                action: data.action
+                substance: data.substance, strength: data.strength, id: data.id, action: data.action
             };
         });
 
@@ -207,7 +198,10 @@ export class ManageProductPage extends CommonPresenterClass {
     }
 
     deleteEpi(_target) {
-        webSkel.appServices.deleteEPI(_target, this.productData.epiUnits);
+        let epiUnit = webSkel.appServices.deleteEPI(_target, this.productData.epiUnits);
+        if (!this.existingProduct || !this.existingProduct.epiUnits || !this.existingProduct.epiUnits.find(item => item.language === epiUnit.language && item.type === epiUnit.type)) {
+            this.productData.epiUnits = this.productData.epiUnits.filter(item => item.language !== epiUnit.language || item.type !== epiUnit.type)
+        }
         this.invalidate();
     }
 
@@ -406,13 +400,9 @@ export class ManageProductPage extends CommonPresenterClass {
             .filter(data => data.marketId !== selectedUnit.marketId && data.action !== "delete")
             .map(data => data.marketId);
         let encodedExcludedOptions = encodeURIComponent(JSON.stringify(excludedOptions));
-        let modalData = await webSkel.showModal(
-            "markets-management-modal",
-            {
-                ["updateData"]: encodedJSON,
-                id: selectedUnit.id,
-                excluded: encodedExcludedOptions
-            }, true);
+        let modalData = await webSkel.showModal("markets-management-modal", {
+            ["updateData"]: encodedJSON, id: selectedUnit.id, excluded: encodedExcludedOptions
+        }, true);
         if (modalData) {
             await this.handleMarketModalData(modalData);
         }

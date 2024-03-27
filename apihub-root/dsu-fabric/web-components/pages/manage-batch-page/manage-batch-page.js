@@ -213,6 +213,9 @@ export class ManageBatchPage extends CommonPresenterClass {
     deleteEpi(_target) {
         let epiUnit = webSkel.appServices.deleteEPI(_target, this.updatedBatch.EPIs);
         //trigger on change for epis
+        if (!this.batch || !this.batch.EPIs || !this.batch.EPIs.find(item => item.language === epiUnit.language && item.type === epiUnit.type)) {
+            this.updatedBatch.EPIs = this.updatedBatch.EPIs.filter(item => item.language !== epiUnit.language || item.type !== epiUnit.type)
+        }
         this.updatedBatch.EPIs = JSON.parse(JSON.stringify(this.updatedBatch.EPIs));
         this.reloadLeafletTab(this.getEncodedEPIS(this.updatedBatch.EPIs));
     }
