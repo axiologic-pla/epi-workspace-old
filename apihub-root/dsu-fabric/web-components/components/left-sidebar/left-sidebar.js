@@ -35,6 +35,7 @@ export class LeftSidebar {
     }
 
     logout() {
+        sessionStorage.setItem("initialURL", window.location.href);
         window.top.location = "/logout";
     }
 
