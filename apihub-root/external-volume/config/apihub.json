@@ -36,7 +36,19 @@
     },
     "integration-api": {
       "module": "./../../gtin-resolver",
-      "function": "getIntegrationAPIs"
+      "function": "getIntegrationAPIs",
+      "throttlerConfig": {
+        "updateProductOrBatch": {
+          "startTokens": 30,
+          "tokenValuePerTime": 1,
+          "unitOfTime": 2000
+        },
+        "updateEPI": {
+          "startTokens": 10,
+          "tokenValuePerTime": 1,
+          "unitOfTime": 2000
+        }
+      }
     },
     "versionlessDSU": {
       "module": "./components/versionlessDSU"
@@ -63,12 +75,8 @@
     "/assets",
     "/bdns",
     "/bundles",
-    "/getAuthorization",
-    "/external-volume/config/oauthConfig.js",
     "/gtinOwner/",
-    "/leaflets/",
-    "/bricking",
-    "/anchor"
+    "/leaflets/"
   ],
   "oauthConfig": {
     "issuer": {
@@ -85,8 +93,8 @@
       "logoutUrl": "https://login.microsoftonline.com/d69968dd-8f36-47eb-b724-7f5e6e660066/oauth2/logout",
       "postLogoutRedirectUrl": "http://localhost:8080/?logout=true"
     },
-    "sessionTimeout": 60000,
-    "keyTTL": 120000,
+    "sessionTimeout": 1800000,
+    "keyTTL": 3600000,
     "debugLogEnabled": false
   },
   "serverAuthentication": false
