@@ -65,7 +65,14 @@ export class AuditEntryModal {
     async downloadEPI() {
         let epiPayload;
         try {
-            let epiDetails = this.entry.details[0];
+            let epiDetails;
+            if (this.entry.details && Array.isArray(this.entry.details)) {
+                epiDetails = this.entry.details.find(item => item.epiType && item.epiLanguage);
+            }
+            if (!epiDetails) {
+                let toastContent = webSkel.appServices.getToastListContent(`Couldn't download EPI!!!`);
+                webSkel.notificationHandler.reportUserRelevantWarning(toastContent, new Error("Couldn't download EPI!!! Missing data!"));
+            }
             epiPayload = await webSkel.appServices.retrieveEPI(this.entry.itemCode, this.entry.batchNumber, epiDetails.epiLanguage, epiDetails.epiType, this.entry.version);
             let string = JSON.stringify(epiPayload);
             const blob = new Blob([string], {type: 'application/json'});
