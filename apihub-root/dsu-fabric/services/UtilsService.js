@@ -86,6 +86,7 @@ export class UtilsService {
             "dataType": "epi"
         }
     }
+
     getDateDiffViewObj(diff, property, enableDaySelection, modelLabelsMap) {
         const formatDate = (value) => {
             value = webSkel.appServices.parseDateStringToDateInputValue(value);
@@ -155,17 +156,22 @@ export class UtilsService {
 
     generateMissingToastList(missingImgFiles) {
         let missingFilesErrText = ``;
-        missingImgFiles.forEach(item => {
-            missingFilesErrText = missingFilesErrText + `<li> ${item} not found</li>`
-        })
+        if (missingImgFiles && Array.isArray(missingImgFiles)) {
+            missingImgFiles.forEach(item => {
+                missingFilesErrText = missingFilesErrText + `<li> ${item} not found</li>`
+            })
+        }
+
         return missingFilesErrText;
     }
 
     generateDifferentCaseToastList(differentCaseImgFiles) {
         let differentCaseErrText = ``;
-        differentCaseImgFiles.forEach(item => {
-            differentCaseErrText = differentCaseErrText + `<li>Image ${item.xmlName} does not exist, but a similar file ${item.fileName}  exists and will be used instead</li>`
-        })
+        if (differentCaseImgFiles && Array.isArray(differentCaseImgFiles)) {
+            differentCaseImgFiles.forEach(item => {
+                differentCaseErrText = differentCaseErrText + `<li>Image ${item.xmlName} does not exist, but a similar file ${item.fileName}  exists and will be used instead</li>`
+            })
+        }
         return differentCaseErrText;
     }
 
@@ -177,6 +183,22 @@ export class UtilsService {
             toastContent = toastContent + `</div>`
         }
         return toastContent;
+    }
+
+    getErrDetails(err) {
+        let errDetails = ""
+        if (err.reason) {
+            let errObj = JSON.parse(err.reason);
+            errDetails = errObj.message || "";
+            if (errObj.details && Array.isArray(errObj.details)) {
+                errObj.details.forEach(item => {
+                    errDetails = errDetails + "<br>" + (item.errorMessage || "") + " " + (item.errorDetails || "")
+                })
+            }
+        } else {
+            errDetails = err.message || "";
+        }
+        return errDetails;
     }
 
 }

@@ -386,7 +386,7 @@ export class BatchesService {
                     }
                 } catch (err) {
                     await webSkel.closeModal(modal);
-                    webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't update data for batch ${batchData.batchNumber} and product code: ${batchData.productCode}. <br> ${err.reason}`), err);
+                    webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't update data for batch ${batchData.batchNumber} and product code: ${batchData.productCode}. <br> ${webSkel.appServices.getErrDetails(err)}`), err);
                     return;
                 }
             }
@@ -395,7 +395,7 @@ export class BatchesService {
                 await webSkel.appServices.executeEPIActions(batchData.EPIs, batchData.productCode, batchData.batchNumber);
             } catch (err) {
                 await webSkel.closeModal(modal);
-                webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't update data for batch ${batchData.batchNumber} and product code: ${batchData.productCode}. <br> ${err.reason}`), err);
+                webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't update data for batch ${batchData.batchNumber} and product code: ${batchData.productCode}. <br> ${webSkel.appServices.getErrDetails(err)}`), err);
                 return;
             }
         } else {

@@ -105,15 +105,16 @@ function generateRandom(length) {
 }
 
 function getSSOId(ssoIdFieldName) {
-  let ssoId = localStorage.getItem(ssoIdFieldName);
-  if(!ssoId) {
-    const parsedCookies = parseCookies(document.cookie);
-    ssoId = parsedCookies[ssoIdFieldName];  }
-  return ssoId;
+    let ssoId = localStorage.getItem(ssoIdFieldName);
+    if (!ssoId) {
+        const parsedCookies = parseCookies(document.cookie);
+        ssoId = parsedCookies[ssoIdFieldName];
+    }
+    return ssoId;
 }
 
 function getUserDetails() {
-  return getSSOId("SSODetectedId");
+    return getSSOId("SSODetectedId");
 }
 
 async function setupGlobalErrorHandlers() {
@@ -134,7 +135,7 @@ async function setupGlobalErrorHandlers() {
             errMsg = notification.err.message;
         }
         let toastMsg = `${notification.message} ${errMsg}`
-        renderToast(constants.NOTIFICATION_TYPES.ERROR, toastMsg);
+        renderToast(constants.NOTIFICATION_TYPES.ERROR, toastMsg, 10000);
     })
 
 }
@@ -172,6 +173,7 @@ function getTextDirection(lang) {
     }
     return textDirection;
 }
+
 function changeSidebarFromURL() {
     let currentPage = window.location.hash;
     let categories = ["home", "my-account", "product", "batch", "audit", "logout"];
@@ -194,6 +196,7 @@ function changeSidebarFromURL() {
         }
     }
 }
+
 export {
     createObservableObject,
     loadPage,

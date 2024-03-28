@@ -147,7 +147,7 @@ export class ProductsService {
                 await $$.promisify(webSkel.client.addImage)(productData.productCode, photoDetails);
             }
         } catch (err) {
-            webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't save Product Photo <br> ${err.reason}`), err);
+            webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't save Product Photo <br> ${webSkel.appServices.getErrDetails(err)}`), err);
 
         }
     }
@@ -216,7 +216,7 @@ export class ProductsService {
                 }
             } catch (err) {
                 await webSkel.closeModal(modal);
-                webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't update data for product code: ${productData.productCode}. <br> ${err.reason}`), err);
+                webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't update data for product code: ${productData.productCode}. <br> ${webSkel.appServices.getErrDetails(err)}`), err);
                 return;
             }
         }
@@ -225,7 +225,7 @@ export class ProductsService {
             await this.saveProductPhoto(productData, updatedPhoto, isUpdate);
         }catch(err){
             await webSkel.closeModal(modal);
-            webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't update data for product code: ${productData.productCode}. <br> ${err.reason}`), err);
+            webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't update data for product code: ${productData.productCode}. <br> ${webSkel.appServices.getErrDetails(err)}`), err);
             return;
         }
         await webSkel.closeModal(modal);
