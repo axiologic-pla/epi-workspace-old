@@ -39,16 +39,9 @@ function showError(title, message, technical) {
 
 function renderToast(type, message, timeoutValue = 5000) {
     let toastContainer = document.querySelector(".toast-container");
-    if (!toastContainer) {
-        toastContainer = document.createElement("div");
-        toastContainer.classList.add("toast-container");
-        let dialogs = document.querySelectorAll("dialog");
-        if (dialogs && dialogs.length > 0) {
-            dialogs[dialogs.length - 1].appendChild(toastContainer);
-        } else {
-            document.body.appendChild(toastContainer);
-        }
-    }
+    const dialogElement = document.createElement('dialog');
+    dialogElement.classList.add('toast-dialog')
+    toastContainer.appendChild(dialogElement);
     let toastElement = document.createElement("div");
     toastElement.classList.add("toast");
     toastElement.classList.add(type);
@@ -60,16 +53,18 @@ function renderToast(type, message, timeoutValue = 5000) {
 </svg>`
     toastButton.addEventListener(constants.HTML_EVENTS.CLICK, (evt) => {
         if (toastElement && toastElement.parentElement) {
-            toastElement.parentNode.removeChild(toastElement);
+            toastContainer.removeChild(toastElement.parentElement);
         }
     })
     toastElement.appendChild(toastButton);
+    dialogElement.appendChild(toastElement);
+    dialogElement.show();
     setTimeout(() => {
         if (toastElement && toastElement.parentElement) {
-            toastElement.parentNode.removeChild(toastElement);
+            toastContainer.removeChild(toastElement.parentElement);
         }
+
     }, timeoutValue)
-    toastContainer.appendChild(toastElement);
 }
 
 function parseCookies(cookies) {
