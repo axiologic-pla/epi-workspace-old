@@ -18,7 +18,7 @@ export class LandingPage {
         this.sourcePage = this.element.getAttribute("data-source-page");
         this.invalidate(async () => {
             if(await this.checkIfMigrationIsNeeded()){
-                alert("Migration is needed. Please access the Demiurge Wallet or ask your administrator to access it.");
+                alert("Migration is needed. Please access the Demiurge Wallet or ask your administrator to access it then refresh this page.");
                 return;
             }
             try {
