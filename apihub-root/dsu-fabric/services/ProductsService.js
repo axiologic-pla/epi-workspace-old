@@ -47,14 +47,15 @@ export class ProductsService {
     }
 
     getProductPayload(productData) {
+        let clone = JSON.parse(JSON.stringify(productData));
         let result = webSkel.appServices.initMessage(constants.API_MESSAGE_TYPES.PRODUCT);
         result.payload = {
-            productCode: productData.productCode,
-            internalMaterialCode: productData.internalMaterialCode,
-            inventedName: productData.inventedName,
-            nameMedicinalProduct: productData.nameMedicinalProduct,
-            strengths: this.cleanUnitsForPayload(productData.strengthUnits),
-            markets: this.cleanUnitsForPayload(productData.marketUnits)
+            productCode: clone.productCode,
+            internalMaterialCode: clone.internalMaterialCode,
+            inventedName: clone.inventedName,
+            nameMedicinalProduct: clone.nameMedicinalProduct,
+            strengths: this.cleanUnitsForPayload(clone.strengthUnits),
+            markets: this.cleanUnitsForPayload(clone.marketUnits)
             /*,
             patientLeafletInfo: productData.patientLeafletInfo*/
         };
@@ -119,7 +120,7 @@ export class ProductsService {
         try {
             productPhotoPayload = await $$.promisify(webSkel.client.getImage)(productCode, version);
         } catch (err) {
-            if(err.rootCause !== "missingData"){
+            if (err.rootCause !== "missingData") {
                 webSkel.notificationHandler.reportUserRelevantWarning(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't retrieve image for product code: ${productCode}. <br> Please check your network connection and configuration and try again.`), err);
             }
         }
@@ -220,10 +221,10 @@ export class ProductsService {
                 return;
             }
         }
-        try{
+        try {
             await webSkel.appServices.executeEPIActions(productData.epiUnits, productData.productCode);
             await this.saveProductPhoto(productData, updatedPhoto, isUpdate);
-        }catch(err){
+        } catch (err) {
             await webSkel.closeModal(modal);
             webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't update data for product code: ${productData.productCode}. <br> ${webSkel.appServices.getErrDetails(err)}`), err);
             return;
@@ -285,11 +286,11 @@ export class ProductsService {
             let epiDiffs = webSkel.appServices.getDiffsForAudit(initialProduct.epiUnits, updatedProduct.epiUnits);
             let marketDiffs = webSkel.appServices.getDiffsForAudit(initialProduct.marketUnits, updatedProduct.marketUnits);
             let strengthDiffs = webSkel.appServices.getDiffsForAudit(initialProduct.strengthUnits, updatedProduct.strengthUnits);
-            if(Object.keys(diffs).length>0 || Object.keys(marketDiffs).length>0 || Object.keys(strengthDiffs).length>0){
+            if (Object.keys(diffs).length > 0 || Object.keys(marketDiffs).length > 0 || Object.keys(strengthDiffs).length > 0) {
                 result.needsMetadataUpdate = true;
             }
 
-            if(Object.keys(diffs).length === 1 && diffs.photo){
+            if (Object.keys(diffs).length === 1 && diffs.photo) {
                 result.needsMetadataUpdate = false;
             }
 
