@@ -37,9 +37,9 @@
     "integration-api": {
       "module": "./../../gtin-resolver",
       "function": "getIntegrationAPIs",
-      "throttlerConfig": {
-        "metadataCapacity": 30,
-        "epiCapacity": 10
+      "requestLimiterConfig": {
+        "metadataCapacity": 5,
+        "epiCapacity": 5
       }
     },
     "versionlessDSU": {
