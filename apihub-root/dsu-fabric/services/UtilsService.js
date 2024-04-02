@@ -188,8 +188,13 @@ export class UtilsService {
     getErrDetails(err) {
         let errDetails = ""
         if (err.reason) {
-            let errObj = JSON.parse(err.reason);
-            errDetails = errObj.message || "";
+            let errObj = "";
+            try {
+                errObj = JSON.parse(err.reason);
+                errDetails = errObj.message || "";
+            } catch (e) {
+                errDetails = err.reason || "";
+            }
             if (errObj.details && Array.isArray(errObj.details)) {
                 errObj.details.forEach(item => {
                     errDetails = errDetails + "<br>" + (item.errorMessage || "") + " " + (item.errorDetails || "")
