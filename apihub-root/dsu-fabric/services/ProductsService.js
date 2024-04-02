@@ -158,7 +158,7 @@ export class ProductsService {
         try {
             productStatus = await $$.promisify(webSkel.client.objectStatus)(gtin);
         } catch (e) {
-            webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't get status for product code: ${gtin}. <br> Please check your network connection and configuration and try again.`), err);
+            webSkel.notificationHandler.reportUserRelevantError(webSkel.appServices.getToastListContent(`Something went wrong!!!<br> Couldn't get status for product code: ${gtin}. <br> Please check your network connection and configuration and try again.`), e);
             return;
         }
         if (productStatus === constants.OBJECT_AVAILABILITY_STATUS.MY_OBJECT) {
