@@ -37,7 +37,7 @@ class PermissionsWatcher {
 
     async checkAccessAndAct() {
         this.checkAccess().then(async (hasAccess) => {
-            webSkel.hideLoading();
+        //    webSkel.hideLoading();
             let unAuthorizedPages = ["generate-did-page", "landing-page"];
             if (hasAccess) {
                 webSkel.userRights = await this.getUserRights();
