@@ -25,7 +25,6 @@
     "server": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"cd opendsu-sdk && npm run start\"",
     "apihub": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"cd opendsu-sdk && npm run start\"",
     "cloud-enclave": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"cd opendsu-sdk && npm run cloud-enclave\"",
-    "create-secret": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"cd apihub-root/dsu-fabric && node ./createSecret\"",
     "remote-enclave": "npm run cloud-enclave",
     "watch": "node ./bin/watcher/watcher.js",
     "tests": "npm run test",
