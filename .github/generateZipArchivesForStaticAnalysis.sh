@@ -66,7 +66,7 @@ cd ../demiurge
 zip -r "$targetFolder/Demiurge$currentDate.zip" . -x ".git/*" "**/.git/**" "**/node_modules/**" "seed" "package-lock.json"
 cd $initialPWD
 
-cd ../dsu-fabric-ssapp
+cd ../apihub-root/dsu-fabric
 zip -r "$targetFolder/EnterpriseWallet$currentDate.zip" . -x ".git/*" "**/.git/**" "**/node_modules/**" "seed" "package-lock.json"
 cd $initialPWD
 
