@@ -26,8 +26,8 @@
                     "type": "smartClone",
                     "target": ".",
                     "collectLog": false,
-                    "commit": "85f4d91d7ce6139fcbe2a02b40f9b301899e2a9e",
-                    "tag": "v2.0.4"
+                    "commit": "8d802095acab46dceea27c482400916c7be2b608",
+                    "tag": "v2.0.5"
                 },
                 {
                     "type": "execute",
@@ -58,8 +58,8 @@
                     "type": "smartClone",
                     "target": ".",
                     "collectLog": false,
-                    "commit": "40960d3bccd9c895a9c84326da3d904c51b5d1de",
-                    "tag": "v1.2.4"
+                    "commit": "090dacac206f9030dc6d34ddf3d76406fc75c307",
+                    "tag": "v1.2.5"
                 },
                 {
                     "type": "execute",
@@ -83,8 +83,8 @@
                     "type": "smartClone",
                     "target": ".",
                     "collectLog": false,
-                    "commit": "40960d3bccd9c895a9c84326da3d904c51b5d1de",
-                    "tag": "v1.2.4"
+                    "commit": "090dacac206f9030dc6d34ddf3d76406fc75c307",
+                    "tag": "v1.2.5"
                 },
                 {
                     "type": "execute",
@@ -172,6 +172,8 @@
             "actions": [
                 {
                     "type": "smartClone",
+                    "commit": "e0aead97a1ff4be4ef73d70d5591f09facf0ba03",
+                    "tag": "v1.0",
                     "target": "./apihub-root/dsu-fabric",
                     "collectLog": false
                 }
