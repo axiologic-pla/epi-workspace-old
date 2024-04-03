@@ -99,14 +99,7 @@ export class ManageBatchPage extends CommonPresenterClass {
 
     detectInputChange(event) {
         let inputName = event.target.name;
-        if (inputName === "expiryDate") {
-            if (!event.target.value) {
-                event.stopImmediatePropagation();
-                event.preventDefault();
-                webSkel.notificationHandler.reportUserRelevantError("Expiry date can is a mandatory field and can not be empty. Please select a valid date");
-                event.target.value = event.target.oldValue;
-                return;
-            }
+        if (inputName === "expiryDate" && event.target.value) {
             this.updatedBatch.expiryDate = webSkel.appServices.formatBatchExpiryDate(event.target.value);
             //to do format with 00 if no day in date
             this.element.querySelector("label.gs1-date").innerHTML = `GS1 format (${this.updatedBatch.expiryDate.length === 4 ? this.updatedBatch.expiryDate + "00" : this.updatedBatch.expiryDate})`

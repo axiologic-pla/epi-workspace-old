@@ -167,6 +167,12 @@ export class BatchesService {
         });
         let self = this;
         dateInput.addEventListener('change', function (event) {
+            if (!event.target.value) {
+                event.stopImmediatePropagation();
+                event.preventDefault();
+                webSkel.notificationHandler.reportUserRelevantError("Expiry date is a mandatory field and can not be empty. Please select a valid date");
+                return;
+            }
             self.updateUIDate(this, event.target.value);
         })
         return dateInput
