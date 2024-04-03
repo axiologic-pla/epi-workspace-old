@@ -134,20 +134,20 @@
                     "type": "smartClone",
                     "target": ".",
                     "collectLog": false,
-                    "commit": "16f2f707b7aa9918f856553962a1a8eae5a0e0cb",
-                    "tag": "v1.1.1"
+                    "commit": "14dbe1c043904e70fa514303f6755cc9d4889417",
+                    "tag": "v1.2.0"
                 },
                 {
                     "type": "execute",
-                    "cmd": "echo \"manualy run cd ethadapter && npm install\""
+                    "cmd": "echo \"manually run cd ethadapter && npm install\""
                 },
                 {
                     "type": "execute",
-                    "cmd": "echo \"manualy run cd ethadapter/EthAdapter && npm install\""
+                    "cmd": "echo \"manually run cd ethadapter/EthAdapter && npm install\""
                 },
                 {
                     "type": "execute",
-                    "cmd": "echo \"manualy run cd ethadapter/SmartContracts && npm install\""
+                    "cmd": "echo \"manually run cd ethadapter/SmartContracts && npm install\""
                 }
             ]
         },
